@@ -8,8 +8,8 @@ const INVITE = "https://www.linkedin.com/in/rodmjay";
 const steps = [
   { icon: "stacked_bar_chart", title: "Stack the rate", body: "Put everyone on the contract: contractor, recruiter, referral partner, PM, your margin. Each gets dollars per hour, locked when the work starts." },
   { icon: "receipt_long", title: "Bill one clean invoice", body: "Hours get approved, the client gets a single invoice with a payment link. They see the total, never the split." },
-  { icon: "hourglass_top", title: "Pending the moment they pay", body: "When the client pays, every share shows up as pending for its owner. Everyone can see what's coming. Nobody fronts payroll." },
-  { icon: "check_circle", title: "Then paid. For good.", body: "Once the hold clears, each share pays out. A disputed amount simply stays pending. Nothing that's been paid is ever taken back." },
+  { icon: "hourglass_top", title: "Pending until it fully clears", body: "When the client pays, every share shows up as pending for its owner. It stays pending until the payment has completely cleared. Nobody fronts payroll." },
+  { icon: "check_circle", title: "It clears or it doesn't", body: "If it clears, everyone is paid, for good. If it doesn't, no one is paid and no one owes a thing. You'll never have to pay money back." },
 ];
 
 const perks = [
@@ -53,7 +53,7 @@ export default function Home() {
             </p>
             <h1 className="md-display-large mt-6 text-balance">Everyone who earned a cut gets paid.</h1>
             <p className="md-body-large mt-6 max-w-xl text-on-surface-variant text-pretty">
-              AgencyPro splits every billed hour between the people who made it happen: the contractor, the recruiter who found them, the partner who sent the client, your PM and your agency. The client pays one invoice. Every share goes pending right away, then pays out on its own. Nothing paid is ever clawed back.
+              AgencyPro splits every billed hour between the people who made it happen: the contractor, the recruiter who found them, the partner who sent the client, your PM and your agency. The client pays one invoice. Every share stays pending until the payment fully clears, then pays out on its own. You&apos;ll never have to pay it back.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <MdButton href="#play" icon="tune">Play with the split</MdButton>

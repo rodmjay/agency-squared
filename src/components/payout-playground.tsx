@@ -2,12 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { SplitBar } from "@/components/split-bar";
-import { MdButton, MdFilterChip, MdSlider, MdSwitch } from "@/components/material";
+import { MdButton, MdFilterChip, MdSlider } from "@/components/material";
 import { PRESETS, STREAMS, money, type StreamKey } from "@/lib/streams";
 import { DEFAULT_SPLIT, HOURS, decodeSplit, encodeSplit, rateMax, type SplitState } from "@/lib/split-url";
 
-const DISPUTE = 0.2;
-type Phase = "pending" | "paid";
+type Phase = "pending" | "cleared" | "failed";
 const totals = (s: SplitState) => {
   const rate = STREAMS.reduce((sum, x) => sum + s.rates[x.key], 0);
   return { rate, invoice: rate * s.hours };
@@ -40,13 +39,12 @@ export function PayoutPlayground({ invite }: { invite: string }) {
     if (!loaded.current) return;
     const url = `${window.location.pathname}?${encodeSplit(split)}#play`;
     // Leave a plain visit's URL alone until the visitor changes something.
-    if (window.location.search || encodeSplit(split) !== encodeSplit(DEFAULT_SPLIT)) window.history.replaceState(null, "", url);
+    if (decodeSplit(window.location.search) || encodeSplit(split) !== encodeSplit(DEFAULT_SPLIT)) window.history.replaceState(null, "", url);
     setLink(window.location.origin + url);
     setCopied("idle");
   }, [split]);
 
   const { rate, invoice } = totals(split);
-  const held = split.dispute ? DISPUTE : 0;
   const update = (patch: Partial<SplitState>) => setSplit((s) => ({ ...s, ...patch }));
   const setOne = (key: StreamKey, v: number) => setSplit((s) => ({ ...s, preset: "custom", rates: { ...s.rates, [key]: v } }));
 
@@ -105,14 +103,14 @@ export function PayoutPlayground({ invite }: { invite: string }) {
             <MdSlider label="Hours billed this month" min={HOURS.min} max={HOURS.max} step={HOURS.step} value={split.hours}
               valueLabel={`${split.hours}`} onValue={(v) => update({ hours: v })} />
           </div>
-          <md-chip-set class="mt-4" aria-label="Payout stage">
-            <MdFilterChip label="1. Client pays" selected={phase === "pending"} onPick={() => setPhase("pending")} />
-            <MdFilterChip label="2. Hold clears" selected={phase === "paid"} onPick={() => setPhase("paid")} />
+          <md-chip-set class="mt-4" aria-label="What happens to the payment">
+            <MdFilterChip label="Client pays" selected={phase === "pending"} onPick={() => setPhase("pending")} />
+            <MdFilterChip label="It clears" selected={phase === "cleared"} onPick={() => setPhase("cleared")} />
+            <MdFilterChip label="It doesn't clear" selected={phase === "failed"} onPick={() => setPhase("failed")} />
           </md-chip-set>
           <ul className="mt-2" aria-live="polite">
             {STREAMS.filter((s) => split.rates[s.key] > 0).map((s, i) => {
               const share = split.rates[s.key] * split.hours;
-              const stuck = share * held;
               return (
                 <li key={s.key}>
                   {i > 0 && <md-divider />}
@@ -121,35 +119,21 @@ export function PayoutPlayground({ invite }: { invite: string }) {
                       <span className="size-2.5 rounded-full" style={{ background: s.color }} aria-hidden />
                       {s.name}
                     </span>
-                    {phase === "pending" ? (
-                      <span className="flex items-center gap-2">
-                        <span className="figure">{money(share)}</span>
-                        <Stage paid={false} />
-                      </span>
-                    ) : (
-                      <span className="flex flex-wrap items-center justify-end gap-2">
-                        <span className="figure">{money(share - stuck)}</span>
-                        <Stage paid />
-                        {stuck > 0 && <span className="figure md-label-medium text-on-surface-variant">+{money(stuck)} pending</span>}
-                      </span>
-                    )}
+                    <span className="flex items-center gap-2">
+                      <span className={`figure ${phase === "failed" ? "text-on-surface-variant line-through" : ""}`}>{money(share)}</span>
+                      <Stage phase={phase} />
+                    </span>
                   </div>
                 </li>
               );
             })}
           </ul>
-          <div className="mt-3 flex items-center justify-between gap-3 rounded-xl bg-surface-high px-4 py-3">
-            <label htmlFor="dispute" className="md-label-large flex items-center gap-2">
-              <md-icon aria-hidden="true">gavel</md-icon> Client disputes 20%
-            </label>
-            <MdSwitch id="dispute" selected={split.dispute} onSelected={(v) => update({ dispute: v })} />
-          </div>
-          <p className="md-body-medium mt-3 text-on-surface-variant">
+          <p className="md-body-medium mt-3 rounded-xl bg-surface-high px-4 py-3">
             {phase === "pending"
-              ? "The moment the client pays, every share shows up as pending for its owner. Tap \u201cHold clears\u201d to see them pay out."
-              : split.dispute
-                ? "Only the disputed 20% stays pending. Everything else pays out, and nothing that's been paid is ever taken back."
-                : "Every share is paid. No clawbacks, ever."}
+              ? "Every share shows up as pending the moment the client pays, and stays pending until the payment fully clears."
+              : phase === "cleared"
+                ? "It cleared. Everyone is paid in full, for good."
+                : "It didn't clear. No one is paid, and no one owes anything. Nobody ever pays money back."}
           </p>
 
           <div className="mt-5 rounded-xl bg-primary-container p-4 text-on-primary-container">
@@ -180,13 +164,12 @@ export function PayoutPlayground({ invite }: { invite: string }) {
 
 function Receipt({ split, invite, ref }: { split: SplitState; invite: string; ref: React.Ref<HTMLDivElement> }) {
   const { rate, invoice } = totals(split);
-  const keep = split.dispute ? 1 - DISPUTE : 1;
   return (
     <div ref={ref} className="md-card-filled scroll-mt-24 p-6 sm:p-8">
       <p className="md-label-large text-primary">Someone sent you a split</p>
       <h3 className="md-headline-small mt-1">Payout receipt</h3>
       <p className="md-body-large mt-2 text-on-surface-variant">
-        The client pays <b className="text-on-surface">{money(invoice)}</b> for {split.hours} hours at {money(rate)}/hr. Every share goes pending the moment they pay, then pays out once the hold clears{split.dispute ? "; the 20% they dispute stays pending" : ""}.
+        The client pays <b className="text-on-surface">{money(invoice)}</b> for {split.hours} hours at {money(rate)}/hr. Every share stays pending until that payment fully clears, then pays out in full.
       </p>
       <div className="mt-4"><SplitBar rates={split.rates} height={28} /></div>
       <dl className="mt-4">
@@ -197,17 +180,17 @@ function Receipt({ split, invite, ref }: { split: SplitState; invite: string; re
                 <span className="size-2.5 rounded-full" style={{ background: s.color }} aria-hidden />
                 {s.name} <span className="hidden text-on-surface-variant sm:inline">· {s.who}</span>
               </dt>
-              <dd className="figure text-right">{money(split.rates[s.key] * split.hours * keep)}{keep < 1 && <span className="md-label-medium block text-on-surface-variant">+{money(split.rates[s.key] * split.hours * (1 - keep))} pending</span>}</dd>
+              <dd className="figure">{money(split.rates[s.key] * split.hours)}</dd>
             </div>
             <md-divider />
           </div>
         ))}
         <div className="md-title-medium flex items-center justify-between gap-3 py-2">
-          <dt>Total paid out{keep < 1 ? " (rest pending)" : ""}</dt>
-          <dd className="figure">{money(invoice * keep)}</dd>
+          <dt>Total paid out when it clears</dt>
+          <dd className="figure">{money(invoice)}</dd>
         </div>
       </dl>
-      <p className="md-label-medium mt-2 text-on-surface-variant">Nothing that&apos;s been paid is ever clawed back. Example numbers, not an offer.</p>
+      <p className="md-label-medium mt-2 text-on-surface-variant"><b className="text-on-surface">You&apos;ll never have to pay it back.</b> If the payment doesn&apos;t clear, no one is paid and no one owes anything. Example numbers, not an offer.</p>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <MdButton href={invite} external icon="arrow_forward" trailingIcon>Get paid like this: request an invite</MdButton>
         <span className="md-body-medium text-on-surface-variant">Or tweak the numbers below.</span>
@@ -216,11 +199,16 @@ function Receipt({ split, invite, ref }: { split: SplitState; invite: string; re
   );
 }
 
-function Stage({ paid }: { paid: boolean }) {
+function Stage({ phase }: { phase: Phase }) {
+  const look = {
+    pending: ["schedule", "Pending", "bg-surface-highest text-on-surface-variant"],
+    cleared: ["check", "Paid", "bg-primary-container text-on-primary-container"],
+    failed: ["block", "Not paid · nothing owed", "bg-surface-highest text-on-surface-variant"],
+  }[phase];
   return (
-    <span className={`md-label-medium inline-flex items-center gap-1 rounded-lg px-2 py-0.5 ${paid ? "bg-primary-container text-on-primary-container" : "bg-surface-highest text-on-surface-variant"}`}>
-      <md-icon aria-hidden="true" style={{ ["--md-icon-size" as string]: "14px" }}>{paid ? "check" : "schedule"}</md-icon>
-      {paid ? "Paid" : "Pending"}
+    <span className={`md-label-medium inline-flex items-center gap-1 rounded-lg px-2 py-0.5 ${look[2]}`}>
+      <md-icon aria-hidden="true" style={{ ["--md-icon-size" as string]: "14px" }}>{look[0]}</md-icon>
+      {look[1]}
     </span>
   );
 }
