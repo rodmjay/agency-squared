@@ -7,10 +7,10 @@ const sans = Roboto({ variable: "--font-roboto", subsets: ["latin"], weight: ["4
 const mono = Roboto_Mono({ variable: "--font-roboto-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 const SITE = "https://rodmjay.github.io/agency-squared";
-const TITLE = "AgencyPro · Everyone who earned a cut gets paid";
-const OG_ALT = "AgencyPro: one billed hour split between everyone who earned a cut";
+const TITLE = "AgencyPro · Your AI does the work. Real people fill the gaps.";
+const OG_ALT = "AgencyPro: an AI workflow with one step handled by a real person";
 const DESCRIPTION =
-  "AgencyPro splits every billed hour between the contractor, the recruiter, the referral partner, the PM and your agency, and pays each share when the client pays.";
+  "AgencyPro works with Claude through MCP and with your systems through its API. Steps only a person should do go to vetted professionals, and everyone is paid fairly once the payment clears.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
