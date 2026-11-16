@@ -1,5 +1,6 @@
 import { HeroSplit } from "@/components/hero-split";
 import { WorkflowCard } from "@/components/workflow-card";
+import { HumanStepDemo } from "@/components/human-step-demo";
 import { MdButton } from "@/components/material";
 import { PayoutPlayground } from "@/components/payout-playground";
 import { STREAMS } from "@/lib/streams";
@@ -73,9 +74,14 @@ export default function Home() {
 
         <section id="humans" className="scroll-mt-20 bg-surface-low py-20">
           <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-            <Eyebrow>Human steps</Eyebrow>
-            <h2 className="md-display-medium mt-2 max-w-3xl text-balance">When your workflow needs a person, it gets one.</h2>
-            <p className="md-body-large mt-3 max-w-2xl text-on-surface-variant">AI shouldn&apos;t sign off on the books alone. AgencyPro routes those steps to real, vetted professionals and keeps the record.</p>
+            <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
+              <div>
+                <Eyebrow>Human steps</Eyebrow>
+                <h2 className="md-display-medium mt-2 text-balance">When your workflow needs a person, it gets one.</h2>
+                <p className="md-body-large mt-3 text-on-surface-variant">AI shouldn&apos;t sign off on the books alone. AgencyPro routes those steps to real, vetted professionals and keeps the record, so your workflow can trust the answer and keep going.</p>
+              </div>
+              <HumanStepDemo />
+            </div>
             <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {humanSteps.map((s, i) => (
                 <li key={s.title} className="md-card-outlined flex flex-col gap-3 bg-surface p-6">
