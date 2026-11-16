@@ -1,6 +1,7 @@
 import { HeroSplit } from "@/components/hero-split";
 import { WorkflowCard } from "@/components/workflow-card";
 import { HumanStepDemo } from "@/components/human-step-demo";
+import { ConnectTabs } from "@/components/connect-tabs";
 import { MdButton } from "@/components/material";
 import { PayoutPlayground } from "@/components/payout-playground";
 import { STREAMS } from "@/lib/streams";
@@ -47,6 +48,7 @@ export default function Home() {
           </a>
           <nav className="md-label-large hidden items-center gap-1 md:flex" aria-label="Sections">
             <MdButton kind="text" href="#humans">Human steps</MdButton>
+            <MdButton kind="text" href="#connect">Connect</MdButton>
             <MdButton kind="text" href="#how">How payouts work</MdButton>
             <MdButton kind="text" href="#play">Try the split</MdButton>
           </nav>
@@ -99,7 +101,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how" className="scroll-mt-20 py-20">
+        <section id="connect" className="mx-auto grid w-full max-w-6xl scroll-mt-20 items-center gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <Eyebrow>Connect</Eyebrow>
+            <h2 className="md-display-medium mt-2 text-balance">Ask from Claude. Or call it from your systems.</h2>
+            <p className="md-body-large mt-3 text-on-surface-variant">AgencyPro is a Claude connector built on MCP, with an API underneath. Your Claude can log time, draft proposals and invoices, and request a human step, all inside your agency&apos;s permissions.</p>
+          </div>
+          <ConnectTabs />
+        </section>
+
+        <section id="how" className="scroll-mt-20 bg-surface-low py-20">
           <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
             <Eyebrow>And everyone gets paid fairly</Eyebrow>
             <h2 className="md-display-medium mt-2 max-w-3xl text-balance">Pending until it clears. Never paid back.</h2>
