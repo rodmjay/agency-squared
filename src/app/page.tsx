@@ -181,6 +181,32 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="roster" className="mx-auto w-full max-w-6xl scroll-mt-20 px-4 pb-20 sm:px-6">
+          <div className="md-card-outlined grid gap-8 bg-surface p-8 sm:p-10 lg:grid-cols-[1.2fr_1fr]">
+            <div>
+              <Eyebrow>For professionals</Eyebrow>
+              <h2 className="md-headline-large mt-2 text-balance">Licensed? Get paid for the steps AI can&apos;t do.</h2>
+              <p className="md-body-large mt-3 text-on-surface-variant">Accountants, attorneys and other credentialed pros: take review and sign-off steps from AI-run workflows. The prep is done before it reaches you. You make the call, and your share is paid once the client&apos;s payment clears. You&apos;ll never have to pay it back.</p>
+              <div className="mt-6"><MdButton kind="tonal" href={INVITE} external icon="badge">Ask about joining</MdButton></div>
+            </div>
+            <ul className="flex flex-col gap-3 self-center">
+              {[
+                ["inventory_2", "Work arrives prepared", "Documents, context and the AI's draft in one place."],
+                ["schedule", "Claim what fits your day", "Pick up the steps that match your credential."],
+                ["verified_user", "Your decision, on the record", "Approve, reject or ask for changes."],
+              ].map(([icon, title, body]) => (
+                <li key={title} className="flex gap-3 rounded-xl bg-surface-low p-4">
+                  <md-icon aria-hidden="true" class="text-primary">{icon}</md-icon>
+                  <div>
+                    <p className="md-title-medium">{title}</p>
+                    <p className="md-body-medium text-on-surface-variant">{body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section id="invite" className="mx-auto w-full max-w-6xl px-4 pb-24 sm:px-6">
           <div className="rounded-3xl bg-primary-container px-8 py-14 text-on-primary-container sm:px-14">
             <h2 className="md-display-medium max-w-3xl text-balance">Run an agency that shares the upside? Come build it with us.</h2>
