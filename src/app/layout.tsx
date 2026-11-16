@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Roboto, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import { MaterialElements } from "@/components/material";
@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     images: [{ url: SITE + "/og.png", width: 1200, height: 630, alt: OG_ALT }],
   },
   twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, images: [{ url: SITE + "/og.png", alt: OG_ALT }] },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#eeefe5" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e201a" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

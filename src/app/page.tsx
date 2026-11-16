@@ -275,9 +275,20 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="md-body-medium mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 pb-10 text-on-surface-variant sm:flex-row sm:justify-between sm:px-6">
-        <span>© 2026 Agency Squared, a Pro Squared company</span>
-        <span>Claude is a trademark of Anthropic. Stripe is a trademark of Stripe, Inc. AgencyPro is not affiliated with either.</span>
+      <footer className="border-t border-outline-variant">
+        <div className="md-body-medium mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10 text-on-surface-variant sm:px-6">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2">
+              {NAV.map(([href, label]) => <a key={href} href={href} className="hover:text-on-surface hover:underline">{label}</a>)}
+              <a href={INVITE} target="_blank" rel="noopener" className="hover:text-on-surface hover:underline">Get an invite</a>
+            </nav>
+            <a href="#main" className="flex items-center gap-1 hover:text-on-surface"><md-icon aria-hidden="true">arrow_upward</md-icon> Back to top</a>
+          </div>
+          <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
+            <span>© 2026 Agency Squared, a Pro Squared company</span>
+            <span>Claude is a trademark of Anthropic. Stripe is a trademark of Stripe, Inc. AgencyPro is not affiliated with either.</span>
+          </div>
+        </div>
       </footer>
     </>
   );
