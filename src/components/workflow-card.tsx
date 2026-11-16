@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { MdFilterChip } from "@/components/material";
 
-// Pick a workflow: AI steps run on their own; the ones a person must do go to a vetted professional.
+// Pick a workflow: AI steps run on their own; the ones a person must do go to a credentialed professional.
 type Step = { who: "ai" | "human"; title: string; note: string };
 
 const WORKFLOWS: { id: string; label: string; steps: Step[] }[] = [
@@ -13,7 +13,7 @@ const WORKFLOWS: { id: string; label: string; steps: Step[] }[] = [
     steps: [
       { who: "ai", title: "Collect statements and receipts", note: "Your Claude gathers them and flags what's missing." },
       { who: "ai", title: "Reconcile the numbers", note: "Totals checked against the ledger." },
-      { who: "human", title: "CPA review and sign-off", note: "A licensed accountant reviews it. Their decision is recorded." },
+      { who: "human", title: "CPA check and sign-off", note: "A licensed accountant checks it. The sign-off is recorded." },
       { who: "ai", title: "Draft the invoice", note: "Ready for your OK. The client sees one total." },
     ],
   },
@@ -24,7 +24,7 @@ const WORKFLOWS: { id: string; label: string; steps: Step[] }[] = [
       { who: "ai", title: "Draft from your template", note: "Terms filled in from the proposal." },
       { who: "ai", title: "Flag unusual clauses", note: "Changes from your standard terms, highlighted." },
       { who: "human", title: "Attorney review", note: "A lawyer reviews the flagged terms and approves or asks for changes." },
-      { who: "ai", title: "Send for signature", note: "After your OK." },
+      { who: "ai", title: "Send it to the client", note: "After your OK." },
     ],
   },
   {
@@ -32,7 +32,7 @@ const WORKFLOWS: { id: string; label: string; steps: Step[] }[] = [
     label: "New client setup",
     steps: [
       { who: "ai", title: "Collect the client's documents", note: "Requested, gathered and checked for completeness." },
-      { who: "human", title: "Verify the documents", note: "A person confirms they're genuine and match the record." },
+      { who: "human", title: "Paralegal preparation", note: "A paralegal prepares the engagement filings for review." },
       { who: "ai", title: "Open the account and project", note: "Set up with the right people and rates." },
       { who: "ai", title: "Send the welcome and first proposal", note: "Drafted for your OK." },
     ],

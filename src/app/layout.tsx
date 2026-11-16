@@ -10,7 +10,7 @@ const SITE = "https://rodmjay.github.io/agency-squared";
 const TITLE = "AgencyPro · Your AI does the work. Real people fill the gaps.";
 const OG_ALT = "AgencyPro: an AI workflow with one step handled by a real person";
 const DESCRIPTION =
-  "AgencyPro works with Claude through MCP and with your systems through its API. Steps only a person should do go to vetted professionals, and everyone is paid fairly once the payment clears.";
+  "AgencyPro works with Claude through MCP and with your systems through its API. Steps only a person should do can go to credentialed professionals, and everyone is paid fairly once the payment clears.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

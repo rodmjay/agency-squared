@@ -9,7 +9,7 @@ const STAGES = [
   { key: "requested", label: "Requested", icon: "send", text: "Your workflow calls request_human_step: “Review the year-end reconciliation and sign off.”" },
   { key: "claimed", label: "Claimed", icon: "badge", text: "A professional with the right credential claims it and opens the documents." },
   { key: "review", label: "In review", icon: "find_in_page", text: "They check the numbers against the source documents. AI did the prep; a person makes the call." },
-  { key: "approved", label: "Approved", icon: "verified", text: "Decision recorded: who decided, their role, and when. Your workflow picks it up and carries on." },
+  { key: "approved", label: "Approved", icon: "verified", text: "Sign-off recorded and signed: who decided, their role, and when. Your workflow picks it up and carries on." },
 ] as const;
 
 export function HumanStepDemo() {
@@ -61,7 +61,7 @@ export function HumanStepDemo() {
           <MdButton kind="text" icon="replay" onClick={() => setRun((n) => n + 1)}>Replay</MdButton>
         </div>
       </div>
-      <p className="md-label-medium mt-3 text-on-surface-variant">Example. Review and sign-off steps come first; more step types are coming.</p>
+      <p className="md-label-medium mt-3 text-on-surface-variant">Example. Human steps are coming soon; none is switched on for clients yet.</p>
     </div>
   );
 }

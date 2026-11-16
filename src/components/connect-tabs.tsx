@@ -46,16 +46,16 @@ export function ConnectTabs() {
       {tab === "claude" ? (
         <div role="tabpanel" id="panel-claude" aria-labelledby="tab-claude" className="flex flex-col gap-3 p-5 sm:p-6">
           <div className="md-body-large self-end rounded-2xl rounded-br-md bg-secondary-container px-4 py-2.5 text-on-secondary-container sm:max-w-[80%]">
-            Before we invoice Acme, have a CPA review the year-end reconciliation.
+            Log 1.5 hours on the Acme website contract: fixed the checkout bug.
           </div>
           <div className="figure md-label-medium flex items-center gap-2 self-start rounded-lg bg-surface-high px-3 py-2 text-on-surface-variant">
             <md-icon aria-hidden="true" style={{ ["--md-icon-size" as string]: "16px" }}>build</md-icon>
-            agencypro · request_human_step(type: &quot;cpa_review&quot;)
+            agencypro · log_time(contractId: &quot;ctr_…&quot;, hours: 1.5)
           </div>
           <div className="md-body-large self-start rounded-2xl rounded-bl-md bg-surface-high px-4 py-2.5 sm:max-w-[80%]">
-            Done. A CPA review is queued for the Acme project. I&apos;ll draft the invoice for your OK as soon as it&apos;s approved.
+            Logged 1.5 hours on the Acme website contract, with your note. It&apos;s in the audit log.
           </div>
-          <p className="md-label-medium mt-1 text-on-surface-variant">Add the AgencyPro connector to your Claude, pick your agency, and ask. It acts with your permissions only.</p>
+          <p className="md-label-medium mt-1 text-on-surface-variant">Example. Local connector, invite-only: add it to Claude Desktop or Claude Code, pick your agency, and ask. It acts with your permissions only.</p>
         </div>
       ) : (
         <div role="tabpanel" id="panel-api" aria-labelledby="tab-api" className="p-5 sm:p-6">

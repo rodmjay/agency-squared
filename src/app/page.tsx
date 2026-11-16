@@ -18,18 +18,15 @@ const steps = [
 
 const humanSteps = [
   { icon: "send", title: "Your workflow asks", body: "When it reaches a step a person must do, your Claude or your system requests a human step through AgencyPro." },
-  { icon: "badge", title: "A vetted pro takes it", body: "A professional who holds the right credential claims the step and gets the documents and context." },
-  { icon: "fact_check", title: "They decide, on the record", body: "Approve, reject or ask for changes. The decision is recorded with who made it and when." },
+  { icon: "badge", title: "A credentialed pro takes it", body: "A professional who holds the right credential, such as a CPA or an attorney, claims the step and gets the documents and context." },
+  { icon: "fact_check", title: "They decide, on the record", body: "Approve, reject or ask for changes. The sign-off is recorded and signed, with who made it and when." },
   { icon: "arrow_forward", title: "Your workflow carries on", body: "The answer comes back to your workflow, and the professional's share goes into the same fair payout." },
 ];
 
-const stepTypes: [string, string, string, boolean][] = [
-  ["calculate", "CPA review", "A licensed accountant reviews the numbers and signs off.", true],
-  ["gavel", "Attorney review", "A lawyer reviews an agreement or a filing.", false],
-  ["fact_check", "Document verification", "A person checks a document is real, complete and matches the record.", false],
-  ["edit_document", "Paralegal prep", "Forms and filings prepared for an attorney's review.", false],
-  ["approval", "Notary and e-signature", "A commissioned notary witnesses a signature.", false],
-  ["verified", "Licensed approval", "The sign-off a regulated step requires.", false],
+const stepTypes: [string, string, string][] = [
+  ["calculate", "CPA check", "A licensed accountant checks the numbers and signs off (non-attest)."],
+  ["gavel", "Attorney review", "A lawyer reviews an agreement or a filing."],
+  ["edit_document", "Paralegal preparation", "Forms and filings prepared for an attorney's review."],
 ];
 
 const perks = [
@@ -47,9 +44,9 @@ const NAV: [string, string][] = [
 ];
 
 const faqs = [
-  ["Who are the real people?", "Vetted professionals who hold the credential a step needs. Review and sign-off steps come first; more step types are on the way."],
+  ["Who are the real people?", "Credentialed professionals, such as CPAs and attorneys, who hold the credential a step needs. Human steps are coming soon: none is switched on for clients yet."],
   ["Does AgencyPro run the AI?", "No. You bring your own Claude and add the AgencyPro connector. It acts with your permissions only, and we never run or bill you for the AI."],
-  ["When does a share get paid?", "Every share shows as pending the moment the client pays and stays pending until that payment fully clears. Then it's paid, for good."],
+  ["When does a share get paid?", "Your share shows as Pending until the client's payment fully clears: a few days for a bank transfer, 60 days for an ACH debit, about 4 months for a card. Then it's paid, for good."],
   ["What if the client's payment doesn't clear?", "Then no one is paid and no one owes anything. Nobody ever has to pay money back."],
   ["What do clients see?", "Their projects, totals and invoices. Never your team's names, rates or pay."],
   ["Can I use it today?", "AgencyPro is in a private beta, by invitation. During the beta, payouts run in Stripe's test mode, so no real money moves yet. Pricing is set at launch."],
@@ -91,7 +88,7 @@ export default function Home() {
             </p>
             <h1 className="md-display-large mt-6 text-balance">Your AI does the work. Real people fill the gaps.</h1>
             <p className="md-body-large mt-6 max-w-xl text-on-surface-variant text-pretty">
-              AgencyPro plugs into Claude through MCP and into your systems through its API. When a workflow reaches a step only a person should do, like a professional review and sign-off, it goes to a vetted human, and the decision comes back on the record. Everyone who worked on it gets paid fairly, and no one ever pays it back.
+              AgencyPro plugs into Claude through MCP and into your systems through its API. When a workflow reaches a step only a person should do, like a professional review and sign-off, it can go to a credentialed professional, and the sign-off comes back on the record. Everyone who worked on it gets paid fairly, and no one ever pays it back.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <MdButton href="#humans" icon="person_check">See a human step</MdButton>
@@ -107,7 +104,7 @@ export default function Home() {
               <div>
                 <Eyebrow>Human steps</Eyebrow>
                 <h2 className="md-display-medium mt-2 text-balance">When your workflow needs a person, it gets one.</h2>
-                <p className="md-body-large mt-3 text-on-surface-variant">AI shouldn&apos;t sign off on the books alone. AgencyPro routes those steps to real, vetted professionals and keeps the record, so your workflow can trust the answer and keep going.</p>
+                <p className="md-body-large mt-3 text-on-surface-variant">AI shouldn&apos;t sign off on the books alone. Coming soon: send a step to a credentialed professional, a CPA or an attorney for example, and get a recorded, signed sign-off your workflow can trust.</p>
               </div>
               <HumanStepDemo />
             </div>
@@ -126,14 +123,14 @@ export default function Home() {
               ))}
             </ol>
             <h3 className="md-title-large mt-14">Kinds of human steps</h3>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {stepTypes.map(([icon, title, body, first]) => (
+            <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+              {stepTypes.map(([icon, title, body]) => (
                 <li key={title} className="flex gap-3 rounded-xl bg-surface p-4">
                   <md-icon aria-hidden="true" class="text-primary">{icon}</md-icon>
                   <div className="min-w-0">
                     <p className="md-title-medium flex flex-wrap items-center gap-2">
                       {title}
-                      <span className={`md-label-medium rounded-md px-1.5 py-0.5 ${first ? "bg-primary-container text-on-primary-container" : "bg-surface-high text-on-surface-variant"}`}>{first ? "First up" : "Planned"}</span>
+                      <span className="md-label-medium rounded-md bg-surface-high px-1.5 py-0.5 text-on-surface-variant">Coming</span>
                     </p>
                     <p className="md-body-medium mt-0.5 text-on-surface-variant">{body}</p>
                   </div>
@@ -147,7 +144,7 @@ export default function Home() {
           <div>
             <Eyebrow>Connect</Eyebrow>
             <h2 className="md-display-medium mt-2 text-balance">Ask from Claude. Or call it from your systems.</h2>
-            <p className="md-body-large mt-3 text-on-surface-variant">AgencyPro is a Claude connector built on MCP, with an API underneath. Your Claude can log time, draft proposals and invoices, and request a human step, all inside your agency&apos;s permissions.</p>
+            <p className="md-body-large mt-3 text-on-surface-variant">AgencyPro is a Claude connector built on MCP, with a REST API and webhooks underneath. Your Claude can log time, draft proposals and invoices, and check payments, all inside your agency&apos;s permissions. Today the connector runs locally with Claude Desktop or Claude Code; a hosted connector for claude.ai is coming.</p>
           </div>
           <ConnectTabs />
         </section>
@@ -242,7 +239,7 @@ export default function Home() {
         <section id="roster" className="mx-auto w-full max-w-6xl scroll-mt-20 px-4 pb-20 sm:px-6">
           <div className="md-card-outlined grid gap-8 bg-surface p-8 sm:p-10 lg:grid-cols-[1.2fr_1fr]">
             <div>
-              <Eyebrow>For professionals</Eyebrow>
+              <Eyebrow>For professionals · coming soon</Eyebrow>
               <h2 className="md-headline-large mt-2 text-balance">Licensed? Get paid for the steps AI can&apos;t do.</h2>
               <p className="md-body-large mt-3 text-on-surface-variant">Accountants, attorneys and other credentialed pros: take review and sign-off steps from AI-run workflows. The prep is done before it reaches you. You make the call, and your share is paid once the client&apos;s payment clears. You&apos;ll never have to pay it back.</p>
               <div className="mt-6"><MdButton kind="tonal" href={INVITE} external icon="badge">Ask about joining</MdButton></div>
