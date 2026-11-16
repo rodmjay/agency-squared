@@ -23,6 +23,15 @@ const humanSteps = [
   { icon: "arrow_forward", title: "Your workflow carries on", body: "The answer comes back to your workflow, and the professional's share goes into the same fair payout." },
 ];
 
+const stepTypes: [string, string, string, boolean][] = [
+  ["calculate", "CPA review", "A licensed accountant reviews the numbers and signs off.", true],
+  ["gavel", "Attorney review", "A lawyer reviews an agreement or a filing.", false],
+  ["fact_check", "Document verification", "A person checks a document is real, complete and matches the record.", false],
+  ["edit_document", "Paralegal prep", "Forms and filings prepared for an attorney's review.", false],
+  ["approval", "Notary and e-signature", "A commissioned notary witnesses a signature.", false],
+  ["verified", "Licensed approval", "The sign-off a regulated step requires.", false],
+];
+
 const perks = [
   { icon: "forum", title: "Bring your own Claude", body: "AgencyPro plugs into the Claude you already use. It acts with your permissions only, and we never run or bill you for the AI." },
   { icon: "visibility_off", title: "Your bench stays yours", body: "Clients see their projects, totals and invoices. Never your team's names, rates or pay." },
@@ -116,6 +125,21 @@ export default function Home() {
                 </li>
               ))}
             </ol>
+            <h3 className="md-title-large mt-14">Kinds of human steps</h3>
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {stepTypes.map(([icon, title, body, first]) => (
+                <li key={title} className="flex gap-3 rounded-xl bg-surface p-4">
+                  <md-icon aria-hidden="true" class="text-primary">{icon}</md-icon>
+                  <div className="min-w-0">
+                    <p className="md-title-medium flex flex-wrap items-center gap-2">
+                      {title}
+                      <span className={`md-label-medium rounded-md px-1.5 py-0.5 ${first ? "bg-primary-container text-on-primary-container" : "bg-surface-high text-on-surface-variant"}`}>{first ? "First up" : "Planned"}</span>
+                    </p>
+                    <p className="md-body-medium mt-0.5 text-on-surface-variant">{body}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
