@@ -28,6 +28,15 @@ const perks = [
   { icon: "verified", title: "Licensed sign-offs, on the record", body: "When a step needs an accountant or attorney, it goes to a real professional and their sign-off is recorded." },
 ];
 
+const faqs = [
+  ["Who are the real people?", "Vetted professionals who hold the credential a step needs. Review and sign-off steps come first; more step types are on the way."],
+  ["Does AgencyPro run the AI?", "No. You bring your own Claude and add the AgencyPro connector. It acts with your permissions only, and we never run or bill you for the AI."],
+  ["When does a share get paid?", "Every share shows as pending the moment the client pays and stays pending until that payment fully clears. Then it's paid, for good."],
+  ["What if the client's payment doesn't clear?", "Then no one is paid and no one owes anything. Nobody ever has to pay money back."],
+  ["What do clients see?", "Their projects, totals and invoices. Never your team's names, rates or pay."],
+  ["Can I use it today?", "AgencyPro is in a private beta, by invitation. During the beta, payouts run in Stripe's test mode, so no real money moves yet. Pricing is set at launch."],
+];
+
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return <p className="md-label-large text-primary">{children}</p>;
 }
@@ -178,6 +187,22 @@ export default function Home() {
             <p className="md-label-large flex items-center gap-2 text-inverse-primary"><md-icon aria-hidden="true">forum</md-icon> Runs from your Claude</p>
             <p className="md-headline-large mt-3 text-balance">&ldquo;Log three hours on the website project.&rdquo; &ldquo;Draft this month&apos;s invoice.&rdquo;</p>
             <p className="md-body-large mt-3 max-w-2xl opacity-80">Add the AgencyPro connector to the Claude you already use. It acts with your permissions only, and we never run or bill you for the AI.</p>
+          </div>
+        </section>
+
+        <section id="faq" className="mx-auto w-full max-w-3xl scroll-mt-20 px-4 pb-20 sm:px-6">
+          <Eyebrow>Questions</Eyebrow>
+          <h2 className="md-headline-large mt-2">The short answers.</h2>
+          <div className="md-card-outlined mt-6 divide-y divide-outline-variant overflow-hidden bg-surface">
+            {faqs.map(([q, a]) => (
+              <details key={q} className="group">
+                <summary className="md-title-medium flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 hover:bg-surface-low focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden">
+                  {q}
+                  <md-icon aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180">expand_more</md-icon>
+                </summary>
+                <p className="md-body-large px-5 pb-5 text-on-surface-variant">{a}</p>
+              </details>
+            ))}
           </div>
         </section>
 
