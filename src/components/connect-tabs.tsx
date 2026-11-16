@@ -14,8 +14,10 @@ Idempotency-Key: 7f3c…
 {
   "projectId": "prj_acme_yearend",
   "type": "cpa_review",
-  "instructions": "Review the reconciliation and sign off.",
-  "documents": ["https://…/reconciliation.pdf"]
+  "jurisdiction": "US-UT",
+  "instructions": "Check the reconciliation and sign off.",
+  "dueAt": "2026-12-04T17:00:00Z",
+  "inputs": [{ "url": "https://…/reconciliation.pdf", "sha256": "9f2c…" }]
 }
 
 → 202 Accepted  { "id": "hs_91…", "status": "Queued" }`;

@@ -27,6 +27,7 @@ const stepTypes: [string, string, string][] = [
   ["calculate", "CPA check", "A licensed accountant checks the numbers and signs off (non-attest)."],
   ["gavel", "Attorney review", "A lawyer reviews an agreement or a filing."],
   ["edit_document", "Paralegal preparation", "Forms and filings prepared for an attorney's review."],
+  ["approval", "Notarization", "Through a notary partner."],
 ];
 
 const perks = [
@@ -123,7 +124,7 @@ export default function Home() {
               ))}
             </ol>
             <h3 className="md-title-large mt-14">Kinds of human steps</h3>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-3">
+            <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {stepTypes.map(([icon, title, body]) => (
                 <li key={title} className="flex gap-3 rounded-xl bg-surface p-4">
                   <md-icon aria-hidden="true" class="text-primary">{icon}</md-icon>

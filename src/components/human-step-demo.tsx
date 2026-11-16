@@ -6,7 +6,7 @@ import { useAutoplay } from "@/lib/use-autoplay";
 
 // One human step, start to finish, as your workflow sees it. Example data only.
 const STAGES = [
-  { key: "requested", label: "Requested", icon: "send", text: "Your workflow calls request_human_step: “Review the year-end reconciliation and sign off.”" },
+  { key: "requested", label: "Requested", icon: "send", text: "Your workflow calls request_human_step: “Check the year-end reconciliation and sign off.”" },
   { key: "claimed", label: "Claimed", icon: "badge", text: "A professional with the right credential claims it and opens the documents." },
   { key: "review", label: "In review", icon: "find_in_page", text: "They check the numbers against the source documents. AI did the prep; a person makes the call." },
   { key: "approved", label: "Approved", icon: "verified", text: "Sign-off recorded and signed: who decided, their role, and when. Your workflow picks it up and carries on." },
