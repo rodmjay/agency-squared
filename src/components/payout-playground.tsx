@@ -6,7 +6,8 @@ import { MdButton, MdFilterChip, MdSlider, MdSwitch } from "@/components/materia
 import { PRESETS, STREAMS, money, type StreamKey } from "@/lib/streams";
 import { DEFAULT_SPLIT, HOURS, decodeSplit, encodeSplit, rateMax, type SplitState } from "@/lib/split-url";
 
-const REFUND = 0.2;
+const DISPUTE = 0.2;
+type Phase = "pending" | "paid";
 const totals = (s: SplitState) => {
   const rate = STREAMS.reduce((sum, x) => sum + s.rates[x.key], 0);
   return { rate, invoice: rate * s.hours };
@@ -15,6 +16,7 @@ const totals = (s: SplitState) => {
 export function PayoutPlayground({ invite }: { invite: string }) {
   const [split, setSplit] = useState<SplitState>(DEFAULT_SPLIT);
   const [received, setReceived] = useState<SplitState | null>(null);
+  const [phase, setPhase] = useState<Phase>("pending");
   const [copied, setCopied] = useState<"idle" | "done" | "manual">("idle");
   const [link, setLink] = useState("");
   const receiptRef = useRef<HTMLDivElement>(null);
@@ -28,7 +30,7 @@ export function PayoutPlayground({ invite }: { invite: string }) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setSplit(s);
       setReceived(s);
-      requestAnimationFrame(() => receiptRef.current?.scrollIntoView({ block: "start" }));
+      setTimeout(() => receiptRef.current?.scrollIntoView({ block: "start" }), 250);
     }
     loaded.current = true;
   }, []);
@@ -44,7 +46,7 @@ export function PayoutPlayground({ invite }: { invite: string }) {
   }, [split]);
 
   const { rate, invoice } = totals(split);
-  const refundShare = split.refund ? REFUND : 0;
+  const held = split.dispute ? DISPUTE : 0;
   const update = (patch: Partial<SplitState>) => setSplit((s) => ({ ...s, ...patch }));
   const setOne = (key: StreamKey, v: number) => setSplit((s) => ({ ...s, preset: "custom", rates: { ...s.rates, [key]: v } }));
 
@@ -103,10 +105,14 @@ export function PayoutPlayground({ invite }: { invite: string }) {
             <MdSlider label="Hours billed this month" min={HOURS.min} max={HOURS.max} step={HOURS.step} value={split.hours}
               valueLabel={`${split.hours}`} onValue={(v) => update({ hours: v })} />
           </div>
-          <ul className="mt-2">
+          <md-chip-set class="mt-4" aria-label="Payout stage">
+            <MdFilterChip label="1. Client pays" selected={phase === "pending"} onPick={() => setPhase("pending")} />
+            <MdFilterChip label="2. Hold clears" selected={phase === "paid"} onPick={() => setPhase("paid")} />
+          </md-chip-set>
+          <ul className="mt-2" aria-live="polite">
             {STREAMS.filter((s) => split.rates[s.key] > 0).map((s, i) => {
-              const paid = split.rates[s.key] * split.hours;
-              const back = paid * refundShare;
+              const share = split.rates[s.key] * split.hours;
+              const stuck = share * held;
               return (
                 <li key={s.key}>
                   {i > 0 && <md-divider />}
@@ -115,25 +121,35 @@ export function PayoutPlayground({ invite }: { invite: string }) {
                       <span className="size-2.5 rounded-full" style={{ background: s.color }} aria-hidden />
                       {s.name}
                     </span>
-                    <span className="figure">
-                      {money(paid - back)}
-                      {split.refund && <span className="ml-2 text-error">−{money(back)}</span>}
-                    </span>
+                    {phase === "pending" ? (
+                      <span className="flex items-center gap-2">
+                        <span className="figure">{money(share)}</span>
+                        <Stage paid={false} />
+                      </span>
+                    ) : (
+                      <span className="flex flex-wrap items-center justify-end gap-2">
+                        <span className="figure">{money(share - stuck)}</span>
+                        <Stage paid />
+                        {stuck > 0 && <span className="figure md-label-medium text-on-surface-variant">+{money(stuck)} pending</span>}
+                      </span>
+                    )}
                   </div>
                 </li>
               );
             })}
           </ul>
           <div className="mt-3 flex items-center justify-between gap-3 rounded-xl bg-surface-high px-4 py-3">
-            <label htmlFor="refund" className="md-label-large flex items-center gap-2">
-              <md-icon aria-hidden="true">undo</md-icon> Client disputes 20%
+            <label htmlFor="dispute" className="md-label-large flex items-center gap-2">
+              <md-icon aria-hidden="true">gavel</md-icon> Client disputes 20%
             </label>
-            <MdSwitch id="refund" selected={split.refund} onSelected={(v) => update({ refund: v })} />
+            <MdSwitch id="dispute" selected={split.dispute} onSelected={(v) => update({ dispute: v })} />
           </div>
           <p className="md-body-medium mt-3 text-on-surface-variant">
-            {split.refund
-              ? "Every share gives back the same 20%, taken from the next payout if it already went out. No one eats the whole loss."
-              : "Flip the switch to see a refund roll back fairly across everyone."}
+            {phase === "pending"
+              ? "The moment the client pays, every share shows up as pending for its owner. Tap \u201cHold clears\u201d to see them pay out."
+              : split.dispute
+                ? "Only the disputed 20% stays pending. Everything else pays out, and nothing that's been paid is ever taken back."
+                : "Every share is paid. No clawbacks, ever."}
           </p>
 
           <div className="mt-5 rounded-xl bg-primary-container p-4 text-on-primary-container">
@@ -164,14 +180,13 @@ export function PayoutPlayground({ invite }: { invite: string }) {
 
 function Receipt({ split, invite, ref }: { split: SplitState; invite: string; ref: React.Ref<HTMLDivElement> }) {
   const { rate, invoice } = totals(split);
-  const keep = split.refund ? 1 - REFUND : 1;
+  const keep = split.dispute ? 1 - DISPUTE : 1;
   return (
     <div ref={ref} className="md-card-filled scroll-mt-24 p-6 sm:p-8">
       <p className="md-label-large text-primary">Someone sent you a split</p>
       <h3 className="md-headline-small mt-1">Payout receipt</h3>
       <p className="md-body-large mt-2 text-on-surface-variant">
-        The client pays <b className="text-on-surface">{money(invoice)}</b> for {split.hours} hours at {money(rate)}/hr
-        {split.refund ? ", then disputes 20%" : ""}. Here&apos;s where every dollar goes.
+        The client pays <b className="text-on-surface">{money(invoice)}</b> for {split.hours} hours at {money(rate)}/hr. Every share goes pending the moment they pay, then pays out once the hold clears{split.dispute ? "; the 20% they dispute stays pending" : ""}.
       </p>
       <div className="mt-4"><SplitBar rates={split.rates} height={28} /></div>
       <dl className="mt-4">
@@ -182,21 +197,30 @@ function Receipt({ split, invite, ref }: { split: SplitState; invite: string; re
                 <span className="size-2.5 rounded-full" style={{ background: s.color }} aria-hidden />
                 {s.name} <span className="hidden text-on-surface-variant sm:inline">· {s.who}</span>
               </dt>
-              <dd className="figure">{money(split.rates[s.key] * split.hours * keep)}</dd>
+              <dd className="figure text-right">{money(split.rates[s.key] * split.hours * keep)}{keep < 1 && <span className="md-label-medium block text-on-surface-variant">+{money(split.rates[s.key] * split.hours * (1 - keep))} pending</span>}</dd>
             </div>
             <md-divider />
           </div>
         ))}
         <div className="md-title-medium flex items-center justify-between gap-3 py-2">
-          <dt>Total paid out</dt>
+          <dt>Total paid out{keep < 1 ? " (rest pending)" : ""}</dt>
           <dd className="figure">{money(invoice * keep)}</dd>
         </div>
       </dl>
-      <p className="md-label-medium mt-2 text-on-surface-variant">Each share is paid only after the client&apos;s payment clears. Example numbers, not an offer.</p>
+      <p className="md-label-medium mt-2 text-on-surface-variant">Nothing that&apos;s been paid is ever clawed back. Example numbers, not an offer.</p>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <MdButton href={invite} external icon="arrow_forward" trailingIcon>Get paid like this: request an invite</MdButton>
         <span className="md-body-medium text-on-surface-variant">Or tweak the numbers below.</span>
       </div>
     </div>
+  );
+}
+
+function Stage({ paid }: { paid: boolean }) {
+  return (
+    <span className={`md-label-medium inline-flex items-center gap-1 rounded-lg px-2 py-0.5 ${paid ? "bg-primary-container text-on-primary-container" : "bg-surface-highest text-on-surface-variant"}`}>
+      <md-icon aria-hidden="true" style={{ ["--md-icon-size" as string]: "14px" }}>{paid ? "check" : "schedule"}</md-icon>
+      {paid ? "Paid" : "Pending"}
+    </span>
   );
 }

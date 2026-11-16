@@ -35,7 +35,7 @@ export function HeroSplit() {
       </ul>
       <div className="md-body-medium mt-6 flex items-center gap-2 rounded-xl bg-secondary-container px-4 py-3 text-on-secondary-container">
         <md-icon aria-hidden="true">payments</md-icon>
-        Client pays, money lands, every share moves.
+        Client pays, every share goes pending, then pays out.
       </div>
     </div>
   );

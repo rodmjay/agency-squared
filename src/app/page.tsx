@@ -8,8 +8,8 @@ const INVITE = "https://www.linkedin.com/in/rodmjay";
 const steps = [
   { icon: "stacked_bar_chart", title: "Stack the rate", body: "Put everyone on the contract: contractor, recruiter, referral partner, PM, your margin. Each gets dollars per hour, locked when the work starts." },
   { icon: "receipt_long", title: "Bill one clean invoice", body: "Hours get approved, the client gets a single invoice with a payment link. They see the total, never the split." },
-  { icon: "payments", title: "Money lands, shares move", body: "The moment the client's payment clears, every share becomes payable to its owner. Nobody fronts payroll." },
-  { icon: "undo", title: "Refunds roll back fairly", body: "If a payment is refunded or disputed, every share gives back its slice in proportion. No awkward chasing." },
+  { icon: "hourglass_top", title: "Pending the moment they pay", body: "When the client pays, every share shows up as pending for its owner. Everyone can see what's coming. Nobody fronts payroll." },
+  { icon: "check_circle", title: "Then paid. For good.", body: "Once the hold clears, each share pays out. A disputed amount simply stays pending. Nothing that's been paid is ever taken back." },
 ];
 
 const perks = [
@@ -53,7 +53,7 @@ export default function Home() {
             </p>
             <h1 className="md-display-large mt-6 text-balance">Everyone who earned a cut gets paid.</h1>
             <p className="md-body-large mt-6 max-w-xl text-on-surface-variant text-pretty">
-              AgencyPro splits every billed hour between the people who made it happen: the contractor, the recruiter who found them, the partner who sent the client, your PM and your agency. The client pays one invoice. When the money lands, every share moves on its own.
+              AgencyPro splits every billed hour between the people who made it happen: the contractor, the recruiter who found them, the partner who sent the client, your PM and your agency. The client pays one invoice. Every share goes pending right away, then pays out on its own. Nothing paid is ever clawed back.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <MdButton href="#play" icon="tune">Play with the split</MdButton>

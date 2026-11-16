@@ -1,19 +1,19 @@
 import { PRESETS, STREAMS, type Rates } from "@/lib/streams";
 
-export type SplitState = { preset: string; rates: Rates; hours: number; refund: boolean };
+export type SplitState = { preset: string; rates: Rates; hours: number; dispute: boolean };
 
-export const DEFAULT_SPLIT: SplitState = { preset: PRESETS[2].id, rates: PRESETS[2].rates, hours: 80, refund: false };
+export const DEFAULT_SPLIT: SplitState = { preset: PRESETS[2].id, rates: PRESETS[2].rates, hours: 80, dispute: false };
 
 export const HOURS = { min: 10, max: 200, step: 5 };
 export const rateMax = (key: string) => (key === "contractor" ? 150 : 40);
 
 const clamp = (n: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, n));
 
-// Query string: ?p=<preset|custom>&r=<9 comma-separated $/h>&h=<hours>&d=1
+// Query string: ?p=<preset|custom>&r=<9 comma-separated $/h>&h=<hours>&d=1 (client disputes 20%, which stays pending)
 export function encodeSplit(s: SplitState): string {
   const preset = /^[a-z]+$/.test(s.preset) ? s.preset : "custom";
   const rates = STREAMS.map((x) => Math.round(s.rates[x.key])).join(",");
-  return `p=${preset}&r=${rates}&h=${Math.round(s.hours)}${s.refund ? "&d=1" : ""}`;
+  return `p=${preset}&r=${rates}&h=${Math.round(s.hours)}${s.dispute ? "&d=1" : ""}`;
 }
 
 /** Returns null unless the query holds a complete, valid split. Every number is clamped. */
@@ -28,5 +28,5 @@ export function decodeSplit(search: string): SplitState | null {
   const h = Number(q.get("h"));
   const hours = Number.isFinite(h) ? clamp(Math.round(h / HOURS.step) * HOURS.step, HOURS.min, HOURS.max) : DEFAULT_SPLIT.hours;
   const named = PRESETS.find((p) => p.id === q.get("p") && STREAMS.every((x) => p.rates[x.key] === rates[x.key]));
-  return { preset: named ? named.id : "custom", rates, hours, refund: q.get("d") === "1" };
+  return { preset: named ? named.id : "custom", rates, hours, dispute: q.get("d") === "1" };
 }
