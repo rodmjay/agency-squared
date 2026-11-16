@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { MdButton } from "@/components/material";
 import { PRESETS, STREAMS, money } from "@/lib/streams";
+import { useAutoplay } from "@/lib/use-autoplay";
 
 // One payment, start to finish: invoice sent → client pays (every share pending) → it clears (shares flip to paid).
 const HOURS = 80;
@@ -22,10 +23,10 @@ export function HeroSplit() {
   const [paidCount, setPaidCount] = useState(shares.length);
   const [run, setRun] = useState(0);
   const timers = useRef<number[]>([]);
+  const { ref: autoRef, playing: loop, paused, reduced, setPaused } = useAutoplay<HTMLDivElement>();
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce && run === 0) return; // Static, finished state; "Replay" still steps through on request.
+    if (!loop && run === 0) return; // Off screen, paused or reduced motion: hold the finished state. Replay still plays once.
     const at = (ms: number, fn: () => void) => timers.current.push(window.setTimeout(fn, ms));
     const play = () => {
       timers.current.forEach(clearTimeout);
@@ -34,14 +35,14 @@ export function HeroSplit() {
       at(1600, () => setStage("pending"));
       at(4200, () => setStage("cleared"));
       shares.forEach((_, i) => at(4300 + i * 220, () => setPaidCount(i + 1)));
-      if (!reduce) at(4300 + shares.length * 220 + 4000, play);
+      if (loop) at(4300 + shares.length * 220 + 4000, play);
     };
     play();
     return () => timers.current.forEach(clearTimeout);
-  }, [run]);
+  }, [run, loop]);
 
   return (
-    <div className="md-card p-6" style={{ ["--md-elevation-level" as string]: 2 }}>
+    <div ref={autoRef} className="md-card p-6" style={{ ["--md-elevation-level" as string]: 2 }}>
       <md-elevation />
       <div className="flex items-baseline justify-between gap-4">
         <span className="md-label-large text-on-surface-variant">One client payment</span>
@@ -94,7 +95,10 @@ export function HeroSplit() {
 
       <div className="mt-5 flex items-center justify-between gap-3 rounded-xl bg-secondary-container px-4 py-3 text-on-secondary-container">
         <p className="md-body-medium" aria-live="polite">{CAPTION[stage]}</p>
-        <MdButton kind="text" icon="replay" onClick={() => setRun((n) => n + 1)}>Replay</MdButton>
+        <div className="flex shrink-0 items-center">
+          {!reduced && <MdButton kind="text" icon={paused ? "play_arrow" : "pause"} onClick={() => setPaused((p) => !p)}>{paused ? "Play" : "Pause"}</MdButton>}
+          <MdButton kind="text" icon="replay" onClick={() => setRun((n) => n + 1)}>Replay</MdButton>
+        </div>
       </div>
     </div>
   );

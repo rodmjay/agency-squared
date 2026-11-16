@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { MdButton } from "@/components/material";
+import { useAutoplay } from "@/lib/use-autoplay";
 
 // One human step, start to finish, as your workflow sees it. Example data only.
 const STAGES = [
@@ -15,19 +16,19 @@ export function HumanStepDemo() {
   const [at, setAt] = useState(STAGES.length - 1);
   const [run, setRun] = useState(0);
   const timers = useRef<number[]>([]);
+  const { ref: autoRef, playing: loop, paused, reduced, setPaused } = useAutoplay<HTMLDivElement>();
 
   useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce && run === 0) return;
+    if (!loop && run === 0) return; // Off screen, paused or reduced motion: hold the finished state.
     timers.current.forEach(clearTimeout);
     timers.current = STAGES.map((_, i) => window.setTimeout(() => setAt(i), i * 1700));
-    if (!reduce) timers.current.push(window.setTimeout(() => setRun((n) => n + 1), STAGES.length * 1700 + 4000));
+    if (loop) timers.current.push(window.setTimeout(() => setRun((n) => n + 1), STAGES.length * 1700 + 4000));
     return () => timers.current.forEach(clearTimeout);
-  }, [run]);
+  }, [run, loop]);
 
   const stage = STAGES[at];
   return (
-    <div className="md-card p-6" style={{ ["--md-elevation-level" as string]: 2 }}>
+    <div ref={autoRef} className="md-card p-6" style={{ ["--md-elevation-level" as string]: 2 }}>
       <md-elevation />
       <div className="flex items-center justify-between gap-3">
         <span className="md-label-large text-on-surface-variant">One human step</span>
@@ -55,7 +56,10 @@ export function HumanStepDemo() {
 
       <div className="mt-5 flex items-start justify-between gap-3 rounded-xl bg-primary-container px-4 py-3 text-on-primary-container">
         <p className="md-body-medium" aria-live="polite">{stage.text}</p>
-        <MdButton kind="text" icon="replay" onClick={() => setRun((n) => n + 1)}>Replay</MdButton>
+        <div className="flex shrink-0 flex-col items-end">
+          {!reduced && <MdButton kind="text" icon={paused ? "play_arrow" : "pause"} onClick={() => setPaused((p) => !p)}>{paused ? "Play" : "Pause"}</MdButton>}
+          <MdButton kind="text" icon="replay" onClick={() => setRun((n) => n + 1)}>Replay</MdButton>
+        </div>
       </div>
       <p className="md-label-medium mt-3 text-on-surface-variant">Example. Review and sign-off steps come first; more step types are coming.</p>
     </div>
