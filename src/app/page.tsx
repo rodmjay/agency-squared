@@ -2,6 +2,7 @@ import { HeroSplit } from "@/components/hero-split";
 import { WorkflowCard } from "@/components/workflow-card";
 import { HumanStepDemo } from "@/components/human-step-demo";
 import { ConnectTabs } from "@/components/connect-tabs";
+import { MobileMenu } from "@/components/mobile-menu";
 import { MdButton } from "@/components/material";
 import { PayoutPlayground } from "@/components/payout-playground";
 import { STREAMS } from "@/lib/streams";
@@ -26,6 +27,14 @@ const perks = [
   { icon: "forum", title: "Bring your own Claude", body: "AgencyPro plugs into the Claude you already use. It acts with your permissions only, and we never run or bill you for the AI." },
   { icon: "visibility_off", title: "Your bench stays yours", body: "Clients see their projects, totals and invoices. Never your team's names, rates or pay." },
   { icon: "verified", title: "Licensed sign-offs, on the record", body: "When a step needs an accountant or attorney, it goes to a real professional and their sign-off is recorded." },
+];
+
+const NAV: [string, string][] = [
+  ["#humans", "Human steps"],
+  ["#connect", "Connect"],
+  ["#how", "How payouts work"],
+  ["#play", "Try the split"],
+  ["#faq", "Questions"],
 ];
 
 const faqs = [
@@ -55,13 +64,13 @@ export default function Home() {
             </span>
             AgencyPro
           </a>
-          <nav className="md-label-large hidden items-center gap-1 md:flex" aria-label="Sections">
-            <MdButton kind="text" href="#humans">Human steps</MdButton>
-            <MdButton kind="text" href="#connect">Connect</MdButton>
-            <MdButton kind="text" href="#how">How payouts work</MdButton>
-            <MdButton kind="text" href="#play">Try the split</MdButton>
+          <nav className="md-label-large hidden items-center gap-0.5 lg:flex" aria-label="Sections">
+            {NAV.map(([href, label]) => <MdButton key={href} kind="text" href={href}>{label}</MdButton>)}
           </nav>
-          <MdButton kind="tonal" href={INVITE} external>Get an invite</MdButton>
+          <div className="flex items-center gap-1">
+            <span className="hidden sm:contents"><MdButton kind="tonal" href={INVITE} external>Get an invite</MdButton></span>
+            <MobileMenu links={NAV} />
+          </div>
         </div>
       </header>
 
