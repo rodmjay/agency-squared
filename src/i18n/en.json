@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "title": "AgencyPro · Your AI does the work. Real people fill the gaps.",
+    "description": "AgencyPro works with Claude through MCP and with your systems through its API. Steps only a person should do can go to credentialed professionals, and everyone is paid fairly once the payment clears.",
+    "ogAlt": "AgencyPro: an AI workflow with one step handled by a real person",
+    "skip": "Skip to content",
+    "language": "Language"
+  },
+  "nav": {
+    "humans": "Human steps",
+    "connect": "Connect",
+    "how": "How payouts work",
+    "play": "Try the split",
+    "faq": "Questions",
+    "sections": "Sections",
+    "footer": "Footer",
+    "menu": "Menu",
+    "invite": "Get an invite",
+    "top": "Back to top"
+  },
+  "hero": {
+    "badge": "Works with Claude · MCP and API · Private beta",
+    "title": "Your AI does the work. Real people fill the gaps.",
+    "body": "AgencyPro plugs into Claude through MCP and into your systems through its API. When a workflow reaches a step only a person should do, like a professional review and sign-off, it can go to a credentialed professional, and the sign-off comes back on the record. Everyone who worked on it gets paid fairly, and no one ever pays it back.",
+    "ctaHuman": "See a human step",
+    "ctaInvite": "Get an invite"
+  },
+  "workflow": {
+    "heading": "Where do the people go?",
+    "via": "via MCP",
+    "pick": "Pick a workflow",
+    "human": "Real person",
+    "ai": "AI",
+    "workflows": [
+      {
+        "label": "Month-end books",
+        "steps": [
+          { "title": "Collect statements and receipts", "note": "Your Claude gathers them and flags what's missing." },
+          { "title": "Reconcile the numbers", "note": "Totals checked against the ledger." },
+          { "title": "CPA check and sign-off", "note": "A licensed accountant checks it. The sign-off is recorded." },
+          { "title": "Draft the invoice", "note": "Ready for your OK. The client sees one total." }
+        ]
+      },
+      {
+        "label": "Client contract",
+        "steps": [
+          { "title": "Draft from your template", "note": "Terms filled in from the proposal." },
+          { "title": "Flag unusual clauses", "note": "Changes from your standard terms, highlighted." },
+          { "title": "Attorney review", "note": "A lawyer reviews the flagged terms and approves or asks for changes." },
+          { "title": "Send it to the client", "note": "After your OK." }
+        ]
+      },
+      {
+        "label": "New client setup",
+        "steps": [
+          { "title": "Collect the client's documents", "note": "Requested, gathered and checked for completeness." },
+          { "title": "Paralegal preparation", "note": "A paralegal prepares the engagement filings for review." },
+          { "title": "Open the account and project", "note": "Set up with the right people and rates." },
+          { "title": "Send the welcome and first proposal", "note": "Drafted for your OK." }
+        ]
+      }
+    ]
+  },
+  "humans": {
+    "eyebrow": "Human steps",
+    "title": "When your workflow needs a person, it gets one.",
+    "body": "AI shouldn't sign off on the books alone. Coming soon: send a step to a credentialed professional, a CPA or an attorney for example, and get a recorded, signed sign-off your workflow can trust.",
+    "step": "Step {n}",
+    "steps": [
+      { "title": "Your workflow asks", "body": "When it reaches a step a person must do, your Claude or your system requests a human step through AgencyPro." },
+      { "title": "A credentialed pro takes it", "body": "A professional who holds the right credential, such as a CPA or an attorney, claims the step and gets the documents and context." },
+      { "title": "They decide, on the record", "body": "Approve, reject or ask for changes. The sign-off is recorded and signed, with who made it and when." },
+      { "title": "Your workflow carries on", "body": "The answer comes back to your workflow, and the professional's share goes into the same fair payout." }
+    ],
+    "kindsTitle": "Kinds of human steps",
+    "coming": "Coming",
+    "kinds": [
+      { "title": "CPA check", "body": "A licensed accountant checks the numbers and signs off (non-attest)." },
+      { "title": "Attorney review", "body": "A lawyer reviews an agreement or a filing." },
+      { "title": "Paralegal preparation", "body": "Forms and filings prepared for an attorney's review." },
+      { "title": "Notarization", "body": "Through a notary partner." }
+    ]
+  },
+  "humanDemo": {
+    "heading": "One human step",
+    "docTitle": "Year-end reconciliation",
+    "docMeta": "Prepared by your AI · 14 pages",
+    "status": "Step status",
+    "stages": [
+      { "label": "Requested", "text": "Your workflow calls request_human_step: “Check the year-end reconciliation and sign off.”" },
+      { "label": "Claimed", "text": "A professional with the right credential claims it and opens the documents." },
+      { "label": "In review", "text": "They check the numbers against the source documents. AI did the prep; a person makes the call." },
+      { "label": "Approved", "text": "Sign-off recorded and signed: who decided, their role, and when. Your workflow picks it up and carries on." }
+    ],
+    "example": "Example. Human steps are coming soon; none is switched on for clients yet."
+  },
+  "controls": {
+    "play": "Play",
+    "pause": "Pause",
+    "replay": "Replay"
+  },
+  "connect": {
+    "eyebrow": "Connect",
+    "title": "Ask from Claude. Or call it from your systems.",
+    "body": "AgencyPro is a Claude connector built on MCP, with a REST API and webhooks underneath. Your Claude can log time, draft proposals and invoices, and check payments, all inside your agency's permissions. Today the connector runs locally with Claude Desktop or Claude Code; a hosted connector for claude.ai is coming.",
+    "tabs": "How to connect",
+    "tabClaude": "In Claude (MCP)",
+    "tabApi": "From your systems (API)",
+    "ask": "Log 1.5 hours on the Acme website contract: fixed the checkout bug.",
+    "reply": "Logged 1.5 hours on the Acme website contract, with your note. It's in the audit log.",
+    "example": "Example. Local connector, invite-only: add it to Claude Desktop or Claude Code, pick your agency, and ask. It acts with your permissions only.",
+    "apiInstructions": "Check the reconciliation and sign off.",
+    "apiDoc": "Year-end reconciliation",
+    "apiNote": "Preview. The connector and the API share the same operations; endpoint details may change before launch."
+  },
+  "how": {
+    "eyebrow": "And everyone gets paid fairly",
+    "title": "Pending until it clears. Never paid back.",
+    "body": "Each person who worked on the job, from the contractor to the professional who signed off, gets a share of what the client pays. Every share stays pending until the payment fully clears. Then it clears and everyone is paid, or it doesn't and no one owes anything.",
+    "steps": [
+      { "title": "Stack the rate", "body": "Put everyone on the contract: contractor, recruiter, referral partner, PM, your margin. Each gets dollars per hour, locked when the work starts." },
+      { "title": "Bill one clean invoice", "body": "Hours get approved, the client gets a single invoice with a payment link. They see the total, never the split." },
+      { "title": "Pending until it fully clears", "body": "When the client pays, every share shows up as pending for its owner. It stays pending until the payment has completely cleared. Nobody fronts payroll." },
+      { "title": "It clears or it doesn't", "body": "If it clears, everyone is paid, for good. If it doesn't, no one is paid and no one owes a thing. You'll never have to pay money back." }
+    ]
+  },
+  "split": {
+    "heading": "One client payment",
+    "stageLabel": "Payment stage",
+    "sent": "Invoice sent",
+    "paidStage": "Client paid",
+    "cleared": "Cleared",
+    "captionSent": "Invoice sent: {amount} for {hours} hours.",
+    "captionPending": "The client paid. Every share is pending until the payment fully clears.",
+    "captionCleared": "It cleared. Everyone is paid, and no one will ever pay it back.",
+    "paid": "Paid {amount}",
+    "pending": "Pending"
+  },
+  "play": {
+    "eyebrow": "Try it",
+    "title": "Build a rate. Watch the money find its people.",
+    "body": "Nothing you enter leaves this page unless you share the link yourself.",
+    "build": "Build the rate",
+    "buildBody": "Drag any slider. Set a share to $0 and it drops off the contract.",
+    "presetLabel": "Start from a preset",
+    "perHour": "{amount}/hr",
+    "sliderLabel": "{name}, dollars per hour",
+    "whereGoes": "Where {amount} goes",
+    "summary": "{hours} hours at {rate}/hr. The client sees one invoice for {amount}. Nobody gets a cent until it's paid.",
+    "hours": "Hours billed this month",
+    "hoursValue": "{hours} h",
+    "phaseLabel": "What happens to the payment",
+    "phasePending": "Client pays",
+    "phaseCleared": "It clears",
+    "phaseFailed": "It doesn't clear",
+    "textPending": "Every share shows up as pending the moment the client pays, and stays pending until the payment fully clears.",
+    "textCleared": "It cleared. Everyone is paid in full, for good.",
+    "textFailed": "It didn't clear. No one is paid, and no one owes anything. Nobody ever pays money back.",
+    "stagePending": "Pending",
+    "stagePaid": "Paid",
+    "stageFailed": "Not paid · nothing owed",
+    "shareTitle": "Show a contractor or partner what they'd earn.",
+    "send": "Send this split",
+    "copied": "Link copied",
+    "copiedNote": "Paste it anywhere. It opens as a payout receipt.",
+    "copyLabel": "Copy this link:",
+    "linkNote": "The link holds only these example numbers. No names, nothing about you.",
+    "reset": "Reset",
+    "exampleNote": "Example numbers only. You set every rate on your own contracts.",
+    "barLabel": "{name} {amount} an hour",
+    "barTitle": "{name}: {amount}/hr"
+  },
+  "receipt": {
+    "eyebrow": "Someone sent you a split",
+    "title": "Payout receipt",
+    "body": "The client pays {amount} for {hours} hours at {rate}/hr. Every share stays pending until that payment fully clears, then pays out in full.",
+    "total": "Total paid out when it clears",
+    "never": "You'll never have to pay it back.",
+    "ifNot": "If the payment doesn't clear, no one is paid and no one owes anything. Example numbers, not an offer.",
+    "cta": "Get paid like this: request an invite",
+    "tweak": "Or tweak the numbers below."
+  },
+  "presets": {
+    "referral": "Referral deal",
+    "bench": "Agency + contractors",
+    "everyone": "The full stack"
+  },
+  "streams": {
+    "contractor": { "name": "Contractor", "who": "Does the work", "blurb": "The person on the keyboard. Their rate is locked on the contract." },
+    "recruiter": { "name": "Recruiter", "who": "Found the contractor", "blurb": "Whoever brought the talent in keeps earning while that talent bills." },
+    "recruiting": { "name": "Recruiting agency", "who": "The recruiter's firm", "blurb": "Their shop gets its own line, paid straight to it." },
+    "marketer": { "name": "Marketer", "who": "Brought the client", "blurb": "Referral partners earn a cut of every hour the client they sent pays for." },
+    "marketing": { "name": "Marketing agency", "who": "The marketer's firm", "blurb": "Agencies that send you work get paid like partners, not with a thank-you note." },
+    "pm": { "name": "Project manager", "who": "Keeps the work moving", "blurb": "Coordination is work too. It gets its own line." },
+    "am": { "name": "Account manager", "who": "Keeps the client happy", "blurb": "Owns the relationship and earns from it, hour by hour." },
+    "agency": { "name": "Your agency", "who": "Your margin", "blurb": "What's left for the business, without spreadsheet surgery." },
+    "system": { "name": "AgencyPro", "who": "The platform fee", "blurb": "Our cut, shown as its own line. No hidden spread." }
+  },
+  "streamsSection": {
+    "eyebrow": "Who gets paid",
+    "title": "Up to nine shares on every hour.",
+    "body": "Use the ones your deal needs. Leave the rest at zero."
+  },
+  "perks": [
+    { "title": "Bring your own Claude", "body": "AgencyPro plugs into the Claude you already use. It acts with your permissions only, and we never run or bill you for the AI." },
+    { "title": "Your bench stays yours", "body": "Clients see their projects, totals and invoices. Never your team's names, rates or pay." },
+    { "title": "Licensed sign-offs, on the record", "body": "When a step needs an accountant or attorney, it goes to a real professional and their sign-off is recorded." }
+  ],
+  "claude": {
+    "label": "Runs from your Claude",
+    "quote": "“Log three hours on the website project.” “Draft this month's invoice.”",
+    "body": "Add the AgencyPro connector to the Claude you already use. It acts with your permissions only, and we never run or bill you for the AI."
+  },
+  "faq": {
+    "eyebrow": "Questions",
+    "title": "The short answers.",
+    "items": [
+      { "q": "Who are the real people?", "a": "Credentialed professionals, such as CPAs and attorneys, who hold the credential a step needs. Human steps are coming soon: none is switched on for clients yet." },
+      { "q": "Does AgencyPro run the AI?", "a": "No. You bring your own Claude and add the AgencyPro connector. It acts with your permissions only, and we never run or bill you for the AI." },
+      { "q": "When does a share get paid?", "a": "Your share shows as Pending until the client's payment fully clears: a few days for a bank transfer, 60 days for an ACH debit, about 4 months for a card. Then it's paid, for good." },
+      { "q": "What if the client's payment doesn't clear?", "a": "Then no one is paid and no one owes anything. Nobody ever has to pay money back." },
+      { "q": "What do clients see?", "a": "Their projects, totals and invoices. Never your team's names, rates or pay." },
+      { "q": "Can I use it today?", "a": "AgencyPro is in a private beta, by invitation. During the beta, payouts run in Stripe's test mode, so no real money moves yet. Pricing is set at launch." }
+    ]
+  },
+  "roster": {
+    "eyebrow": "For professionals · coming soon",
+    "title": "Licensed? Get paid for the steps AI can't do.",
+    "body": "Accountants, attorneys and other credentialed pros: take review and sign-off steps from AI-run workflows. The prep is done before it reaches you. You make the call, and your share is paid once the client's payment clears. You'll never have to pay it back.",
+    "cta": "Ask about joining",
+    "items": [
+      { "title": "Work arrives prepared", "body": "Documents, context and the AI's draft in one place." },
+      { "title": "Claim what fits your day", "body": "Pick up the steps that match your credential." },
+      { "title": "Your decision, on the record", "body": "Approve, reject or ask for changes." }
+    ]
+  },
+  "invite": {
+    "title": "Run an agency that shares the upside? Come build it with us.",
+    "body": "We're letting in a few agencies at a time. Tell us what you do and how your people get paid today.",
+    "cta": "Message us on LinkedIn",
+    "beta": "During the beta, payouts run in Stripe's test mode, so no real money moves yet. Pricing is set at launch."
+  },
+  "footer": {
+    "copyright": "© 2026 Agency Squared, a Pro Squared company",
+    "trademarks": "Claude is a trademark of Anthropic. Stripe is a trademark of Stripe, Inc. AgencyPro is not affiliated with either."
+  },
+  "notFound": {
+    "eyebrow": "Page not found",
+    "title": "This step didn't clear.",
+    "body": "The page you're looking for isn't here. Nothing is owed.",
+    "cta": "Back to AgencyPro"
+  }
+}

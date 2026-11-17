@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function MobileMenu({ links }: { links: [string, string][] }) {
+export function MobileMenu({ links, label, navLabel }: { links: [string, string][]; label: string; navLabel: string }) {
   const [open, setOpen] = useState(false);
   const box = useRef<HTMLDivElement>(null);
 
@@ -16,13 +16,13 @@ export function MobileMenu({ links }: { links: [string, string][] }) {
   }, [open]);
 
   return (
-    <div ref={box} className="relative lg:hidden">
-      <button type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label="Menu" onClick={() => setOpen((o) => !o)}
+    <div ref={box} className="relative xl:hidden">
+      <button type="button" aria-expanded={open} aria-controls="mobile-menu" aria-label={label} onClick={() => setOpen((o) => !o)}
         className="grid size-10 place-items-center rounded-full hover:bg-surface-high focus-visible:outline-2 focus-visible:outline-primary">
         <md-icon aria-hidden="true">{open ? "close" : "menu"}</md-icon>
       </button>
       {open && (
-        <nav id="mobile-menu" aria-label="Sections" className="md-card absolute right-0 top-12 z-50 w-56 py-2" style={{ ["--md-elevation-level" as string]: 3 }}>
+        <nav id="mobile-menu" aria-label={navLabel} className="md-card absolute right-0 top-12 z-50 w-56 py-2" style={{ ["--md-elevation-level" as string]: 3 }}>
           <md-elevation />
           {links.map(([href, label]) => (
             <a key={href} href={href} onClick={() => setOpen(false)}

@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Synced copies of the design system (linted in its own repo).
+    "src/design-system/**",
   ]),
 ]);
 

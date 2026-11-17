@@ -6,10 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync:ds": "scripts/sync-design-system.sh",
+    "check:i18n": "node src/design-system/check-i18n.mjs --dict src/i18n/en.json --dict src/i18n/es.json",
+    "prebuild": "npm run check:i18n"
   },
   "dependencies": {
-    "@material/web": "^2.5.0",
+    "@material/web": "2.5.0",
     "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0"

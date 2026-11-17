@@ -1,0 +1,253 @@
+{
+  "meta": {
+    "title": "AgencyPro · Su IA hace el trabajo. Personas reales cubren lo demás.",
+    "description": "AgencyPro funciona con Claude a través de MCP y con sus sistemas a través de su API. Los pasos que solo una persona debe hacer pueden ir a profesionales acreditados, y a todos se les paga de forma justa cuando el pago se acredita.",
+    "ogAlt": "AgencyPro: un flujo de trabajo con IA en el que una persona real se encarga de un paso",
+    "skip": "Ir al contenido",
+    "language": "Idioma"
+  },
+  "nav": {
+    "humans": "Pasos humanos",
+    "connect": "Conexión",
+    "how": "Cómo se paga",
+    "play": "Pruebe el reparto",
+    "faq": "Preguntas",
+    "sections": "Secciones",
+    "footer": "Pie de página",
+    "menu": "Menú",
+    "invite": "Pida una invitación",
+    "top": "Volver arriba"
+  },
+  "hero": {
+    "badge": "Funciona con Claude · MCP y API · Beta privada",
+    "title": "Su IA hace el trabajo. Personas reales cubren lo demás.",
+    "body": "AgencyPro se conecta a Claude a través de MCP y a sus sistemas a través de su API. Cuando un flujo de trabajo llega a un paso que solo una persona debe hacer, como una revisión y aprobación profesional, ese paso puede ir a un profesional acreditado, y la aprobación vuelve con registro. Todos los que trabajaron reciben un pago justo, y nadie tiene que devolverlo nunca.",
+    "ctaHuman": "Vea un paso humano",
+    "ctaInvite": "Pida una invitación"
+  },
+  "workflow": {
+    "heading": "¿Dónde intervienen las personas?",
+    "via": "vía MCP",
+    "pick": "Elija un flujo de trabajo",
+    "human": "Persona real",
+    "ai": "IA",
+    "workflows": [
+      {
+        "label": "Cierre contable del mes",
+        "steps": [
+          { "title": "Reunir estados de cuenta y recibos", "note": "Su Claude los reúne y señala lo que falta." },
+          { "title": "Conciliar las cifras", "note": "Los totales se comparan con el libro contable." },
+          { "title": "Revisión y aprobación de un contador", "note": "Un contador público con licencia lo revisa. La aprobación queda registrada." },
+          { "title": "Preparar la factura", "note": "Lista para su visto bueno. El cliente ve un solo total." }
+        ]
+      },
+      {
+        "label": "Contrato con un cliente",
+        "steps": [
+          { "title": "Redactar desde su plantilla", "note": "Las condiciones se completan a partir de la propuesta." },
+          { "title": "Señalar cláusulas inusuales", "note": "Los cambios respecto a sus condiciones estándar, resaltados." },
+          { "title": "Revisión de un abogado", "note": "Un abogado revisa las condiciones señaladas y las aprueba o pide cambios." },
+          { "title": "Enviarlo al cliente", "note": "Después de su visto bueno." }
+        ]
+      },
+      {
+        "label": "Alta de un cliente nuevo",
+        "steps": [
+          { "title": "Reunir los documentos del cliente", "note": "Se solicitan, se reúnen y se revisa que estén completos." },
+          { "title": "Preparación por un asistente legal", "note": "Un asistente legal prepara los trámites del contrato para revisión." },
+          { "title": "Abrir la cuenta y el proyecto", "note": "Con las personas y las tarifas correctas." },
+          { "title": "Enviar la bienvenida y la primera propuesta", "note": "Redactadas para su visto bueno." }
+        ]
+      }
+    ]
+  },
+  "humans": {
+    "eyebrow": "Pasos humanos",
+    "title": "Cuando su flujo de trabajo necesita a una persona, la tiene.",
+    "body": "La IA no debería aprobar la contabilidad por sí sola. Muy pronto: envíe un paso a un profesional acreditado, por ejemplo un contador público o un abogado, y reciba una aprobación firmada y registrada en la que su flujo de trabajo puede confiar.",
+    "step": "Paso {n}",
+    "steps": [
+      { "title": "Su flujo de trabajo lo pide", "body": "Cuando llega a un paso que debe hacer una persona, su Claude o su sistema solicita un paso humano a través de AgencyPro." },
+      { "title": "Lo toma un profesional acreditado", "body": "Un profesional con la acreditación necesaria, como un contador público o un abogado, toma el paso y recibe los documentos y el contexto." },
+      { "title": "Decide, y queda registrado", "body": "Aprueba, rechaza o pide cambios. La aprobación queda registrada y firmada, con quién la dio y cuándo." },
+      { "title": "Su flujo de trabajo continúa", "body": "La respuesta vuelve a su flujo de trabajo, y la parte del profesional entra en el mismo reparto justo." }
+    ],
+    "kindsTitle": "Tipos de pasos humanos",
+    "coming": "Próximamente",
+    "kinds": [
+      { "title": "Revisión de un contador", "body": "Un contador público con licencia revisa las cifras y las aprueba (sin dictamen)." },
+      { "title": "Revisión de un abogado", "body": "Un abogado revisa un contrato o un trámite." },
+      { "title": "Preparación por un asistente legal", "body": "Formularios y trámites preparados para que los revise un abogado." },
+      { "title": "Certificación notarial", "body": "A través de un notario asociado." }
+    ]
+  },
+  "humanDemo": {
+    "heading": "Un paso humano",
+    "docTitle": "Conciliación de fin de año",
+    "docMeta": "Preparada por su IA · 14 páginas",
+    "status": "Estado del paso",
+    "stages": [
+      { "label": "Solicitado", "text": "Su flujo de trabajo llama a request_human_step: “Revise la conciliación de fin de año y apruébela”." },
+      { "label": "Tomado", "text": "Un profesional con la acreditación necesaria lo toma y abre los documentos." },
+      { "label": "En revisión", "text": "Compara las cifras con los documentos de origen. La IA hizo la preparación; una persona toma la decisión." },
+      { "label": "Aprobado", "text": "Aprobación registrada y firmada: quién decidió, con qué función y cuándo. Su flujo de trabajo la recibe y continúa." }
+    ],
+    "example": "Ejemplo. Los pasos humanos llegan muy pronto; todavía no hay ninguno activo para clientes."
+  },
+  "controls": {
+    "play": "Reproducir",
+    "pause": "Pausar",
+    "replay": "Repetir"
+  },
+  "connect": {
+    "eyebrow": "Conexión",
+    "title": "Pídalo desde Claude. O llámelo desde sus sistemas.",
+    "body": "AgencyPro es un conector de Claude creado sobre MCP, con una API REST y webhooks por debajo. Su Claude puede registrar horas, preparar propuestas y facturas, y revisar pagos, siempre dentro de los permisos de su agencia. Hoy el conector funciona de forma local con Claude Desktop o Claude Code; pronto habrá un conector alojado para claude.ai.",
+    "tabs": "Cómo conectarse",
+    "tabClaude": "En Claude (MCP)",
+    "tabApi": "Desde sus sistemas (API)",
+    "ask": "Registra 1.5 horas en el contrato del sitio web de Acme: arreglé el error del pago.",
+    "reply": "Registré 1.5 horas en el contrato del sitio web de Acme, con su nota. Ya está en el registro de auditoría.",
+    "example": "Ejemplo. Conector local, solo con invitación: agréguelo a Claude Desktop o Claude Code, elija su agencia y pregunte. Actúa solo con sus permisos.",
+    "apiInstructions": "Revise la conciliación y apruébela.",
+    "apiDoc": "Conciliación de fin de año",
+    "apiNote": "Vista previa. El conector y la API comparten las mismas operaciones; los detalles de los endpoints pueden cambiar antes del lanzamiento."
+  },
+  "how": {
+    "eyebrow": "Y a todos se les paga de forma justa",
+    "title": "Pendiente hasta que se acredita. Nunca se devuelve.",
+    "body": "Cada persona que trabajó en el proyecto, desde el contratista hasta el profesional que lo aprobó, recibe una parte de lo que paga el cliente. Cada parte queda pendiente hasta que el pago se acredita por completo. Entonces se acredita y a todos se les paga, o no se acredita y nadie debe nada.",
+    "steps": [
+      { "title": "Arme la tarifa", "body": "Ponga a todos en el contrato: contratista, reclutador, socio que refirió, gerente de proyecto y su margen. Cada uno recibe dólares por hora, fijados cuando empieza el trabajo." },
+      { "title": "Cobre con una sola factura", "body": "Se aprueban las horas y el cliente recibe una sola factura con un enlace de pago. Ve el total, nunca el reparto." },
+      { "title": "Pendiente hasta que se acredita", "body": "Cuando el cliente paga, cada parte aparece como pendiente para su dueño. Sigue pendiente hasta que el pago se acredita por completo. Nadie adelanta la nómina." },
+      { "title": "Se acredita o no", "body": "Si se acredita, a todos se les paga, de forma definitiva. Si no, nadie cobra y nadie debe nada. Nunca tendrá que devolver dinero." }
+    ]
+  },
+  "split": {
+    "heading": "Un pago de un cliente",
+    "stageLabel": "Etapa del pago",
+    "sent": "Factura enviada",
+    "paidStage": "El cliente pagó",
+    "cleared": "Acreditado",
+    "captionSent": "Factura enviada: {amount} por {hours} horas.",
+    "captionPending": "El cliente pagó. Cada parte queda pendiente hasta que el pago se acredita por completo.",
+    "captionCleared": "Se acreditó. A todos se les pagó, y nadie tendrá que devolverlo nunca.",
+    "paid": "Pagado {amount}",
+    "pending": "Pendiente"
+  },
+  "play": {
+    "eyebrow": "Pruébelo",
+    "title": "Arme una tarifa. Vea cómo el dinero llega a su gente.",
+    "body": "Nada de lo que ingrese sale de esta página, a menos que usted comparta el enlace.",
+    "build": "Arme la tarifa",
+    "buildBody": "Mueva cualquier control. Si pone una parte en $0, sale del contrato.",
+    "presetLabel": "Empiece con un ejemplo",
+    "perHour": "{amount}/h",
+    "sliderLabel": "{name}, dólares por hora",
+    "whereGoes": "A dónde van {amount}",
+    "summary": "{hours} horas a {rate}/h. El cliente ve una sola factura por {amount}. Nadie recibe un centavo hasta que se paga.",
+    "hours": "Horas facturadas este mes",
+    "hoursValue": "{hours} h",
+    "phaseLabel": "Qué pasa con el pago",
+    "phasePending": "El cliente paga",
+    "phaseCleared": "Se acredita",
+    "phaseFailed": "No se acredita",
+    "textPending": "Cada parte aparece como pendiente en cuanto el cliente paga, y sigue pendiente hasta que el pago se acredita por completo.",
+    "textCleared": "Se acreditó. A todos se les pagó completo, de forma definitiva.",
+    "textFailed": "No se acreditó. Nadie cobra y nadie debe nada. Nadie tiene que devolver dinero nunca.",
+    "stagePending": "Pendiente",
+    "stagePaid": "Pagado",
+    "stageFailed": "Sin pago · no se debe nada",
+    "shareTitle": "Muéstrele a un contratista o socio cuánto ganaría.",
+    "send": "Enviar este reparto",
+    "copied": "Enlace copiado",
+    "copiedNote": "Péguelo donde quiera. Se abre como un recibo de pagos.",
+    "copyLabel": "Copie este enlace:",
+    "linkNote": "El enlace solo lleva estas cifras de ejemplo. Ningún nombre, nada sobre usted.",
+    "reset": "Restablecer",
+    "exampleNote": "Solo son cifras de ejemplo. Usted fija cada tarifa en sus propios contratos.",
+    "barLabel": "{name} {amount} por hora",
+    "barTitle": "{name}: {amount}/h"
+  },
+  "receipt": {
+    "eyebrow": "Alguien le envió un reparto",
+    "title": "Recibo de pagos",
+    "body": "El cliente paga {amount} por {hours} horas a {rate}/h. Cada parte queda pendiente hasta que ese pago se acredita por completo, y luego se paga completa.",
+    "total": "Total que se paga cuando se acredita",
+    "never": "Nunca tendrá que devolverlo.",
+    "ifNot": "Si el pago no se acredita, nadie cobra y nadie debe nada. Cifras de ejemplo, no una oferta.",
+    "cta": "Cobre así: pida una invitación",
+    "tweak": "O ajuste las cifras más abajo."
+  },
+  "presets": {
+    "referral": "Acuerdo con referido",
+    "bench": "Agencia y contratistas",
+    "everyone": "Todos los participantes"
+  },
+  "streams": {
+    "contractor": { "name": "Contratista", "who": "Hace el trabajo", "blurb": "La persona frente al teclado. Su tarifa queda fijada en el contrato." },
+    "recruiter": { "name": "Reclutador", "who": "Encontró al contratista", "blurb": "Quien trajo el talento sigue ganando mientras ese talento factura." },
+    "recruiting": { "name": "Agencia de reclutamiento", "who": "La firma del reclutador", "blurb": "Su empresa tiene su propia línea y se le paga directamente." },
+    "marketer": { "name": "Promotor", "who": "Trajo al cliente", "blurb": "Los socios que refieren ganan una parte de cada hora que paga el cliente que enviaron." },
+    "marketing": { "name": "Agencia de marketing", "who": "La firma del promotor", "blurb": "Las agencias que le envían trabajo cobran como socias, no con una nota de agradecimiento." },
+    "pm": { "name": "Gerente de proyecto", "who": "Mantiene el trabajo en marcha", "blurb": "Coordinar también es trabajo. Tiene su propia línea." },
+    "am": { "name": "Gerente de cuenta", "who": "Mantiene contento al cliente", "blurb": "Lleva la relación y gana con ella, hora por hora." },
+    "agency": { "name": "Su agencia", "who": "Su margen", "blurb": "Lo que queda para el negocio, sin pelearse con hojas de cálculo." },
+    "system": { "name": "AgencyPro", "who": "La tarifa de la plataforma", "blurb": "Nuestra parte, en su propia línea. Sin márgenes ocultos." }
+  },
+  "streamsSection": {
+    "eyebrow": "Quién cobra",
+    "title": "Hasta nueve partes en cada hora.",
+    "body": "Use las que su acuerdo necesite. Deje las demás en cero."
+  },
+  "perks": [
+    { "title": "Use su propio Claude", "body": "AgencyPro se conecta al Claude que usted ya usa. Actúa solo con sus permisos, y nunca ejecutamos ni le cobramos la IA." },
+    { "title": "Su equipo sigue siendo suyo", "body": "Los clientes ven sus proyectos, totales y facturas. Nunca los nombres, las tarifas ni los pagos de su equipo." },
+    { "title": "Aprobaciones con licencia, registradas", "body": "Cuando un paso necesita un contador o un abogado, va a un profesional real y su aprobación queda registrada." }
+  ],
+  "claude": {
+    "label": "Funciona desde su Claude",
+    "quote": "“Registra tres horas en el proyecto del sitio web.” “Prepara la factura de este mes.”",
+    "body": "Agregue el conector de AgencyPro al Claude que usted ya usa. Actúa solo con sus permisos, y nunca ejecutamos ni le cobramos la IA."
+  },
+  "faq": {
+    "eyebrow": "Preguntas",
+    "title": "Las respuestas cortas.",
+    "items": [
+      { "q": "¿Quiénes son las personas reales?", "a": "Profesionales acreditados, como contadores públicos y abogados, que tienen la acreditación que el paso necesita. Los pasos humanos llegan muy pronto: todavía no hay ninguno activo para clientes." },
+      { "q": "¿AgencyPro ejecuta la IA?", "a": "No. Usted usa su propio Claude y le agrega el conector de AgencyPro. Actúa solo con sus permisos, y nunca ejecutamos ni le cobramos la IA." },
+      { "q": "¿Cuándo se paga una parte?", "a": "Su parte aparece como Pendiente hasta que el pago del cliente se acredita por completo: unos días para una transferencia bancaria, 60 días para un débito ACH y unos 4 meses para una tarjeta. Entonces se paga, de forma definitiva." },
+      { "q": "¿Y si el pago del cliente no se acredita?", "a": "Entonces nadie cobra y nadie debe nada. Nadie tiene que devolver dinero nunca." },
+      { "q": "¿Qué ven los clientes?", "a": "Sus proyectos, totales y facturas. Nunca los nombres, las tarifas ni los pagos de su equipo." },
+      { "q": "¿Puedo usarlo hoy?", "a": "AgencyPro está en una beta privada, solo con invitación. Durante la beta, los pagos funcionan en el modo de prueba de Stripe, así que todavía no se mueve dinero real. El precio se fija en el lanzamiento." }
+    ]
+  },
+  "roster": {
+    "eyebrow": "Para profesionales · muy pronto",
+    "title": "¿Tiene licencia? Cobre por los pasos que la IA no puede hacer.",
+    "body": "Contadores, abogados y otros profesionales acreditados: tomen pasos de revisión y aprobación de flujos de trabajo con IA. La preparación ya está hecha cuando le llega. Usted toma la decisión, y su parte se paga cuando el pago del cliente se acredita. Nunca tendrá que devolverla.",
+    "cta": "Pregunte cómo sumarse",
+    "items": [
+      { "title": "El trabajo llega preparado", "body": "Documentos, contexto y el borrador de la IA en un solo lugar." },
+      { "title": "Tome lo que encaje en su día", "body": "Elija los pasos que corresponden a su acreditación." },
+      { "title": "Su decisión, registrada", "body": "Apruebe, rechace o pida cambios." }
+    ]
+  },
+  "invite": {
+    "title": "¿Dirige una agencia que comparte las ganancias? Constrúyalo con nosotros.",
+    "body": "Estamos sumando unas pocas agencias a la vez. Cuéntenos a qué se dedica y cómo se le paga hoy a su gente.",
+    "cta": "Escríbanos por LinkedIn",
+    "beta": "Durante la beta, los pagos funcionan en el modo de prueba de Stripe, así que todavía no se mueve dinero real. El precio se fija en el lanzamiento."
+  },
+  "footer": {
+    "copyright": "© 2026 Agency Squared, una empresa de Pro Squared",
+    "trademarks": "Claude es una marca registrada de Anthropic. Stripe es una marca registrada de Stripe, Inc. AgencyPro no está afiliada a ninguna de las dos."
+  },
+  "notFound": {
+    "eyebrow": "Página no encontrada",
+    "title": "Este paso no se acreditó.",
+    "body": "La página que busca no está aquí. No se debe nada.",
+    "cta": "Volver a AgencyPro"
+  }
+}
