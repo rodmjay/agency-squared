@@ -9,7 +9,7 @@ import { STREAMS } from "@/lib/streams";
 import { I18nProvider, LangMenu } from "@/components/i18n";
 import { DICTS, fmt, type Lang } from "@/i18n";
 
-const INVITE = "https://www.linkedin.com/in/rodmjay";
+const INVITE = "mailto:agency@squared.pro?subject=AgencyPro";
 
 // Icons in the same order as the dictionary's lists (src/i18n/en.json).
 const STEP_ICONS = ["stacked_bar_chart", "receipt_long", "hourglass_top", "check_circle"];

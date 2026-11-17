@@ -237,7 +237,7 @@
   "invite": {
     "title": "¿Dirige una agencia que comparte las ganancias? Constrúyalo con nosotros.",
     "body": "Estamos sumando unas pocas agencias a la vez. Cuéntenos a qué se dedica y cómo se le paga hoy a su gente.",
-    "cta": "Escríbanos por LinkedIn",
+    "cta": "Escríbanos por correo",
     "beta": "Durante la beta, los pagos funcionan en el modo de prueba de Stripe, así que todavía no se mueve dinero real. El precio se fija en el lanzamiento."
   },
   "footer": {

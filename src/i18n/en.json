@@ -237,7 +237,7 @@
   "invite": {
     "title": "Run an agency that shares the upside? Come build it with us.",
     "body": "We're letting in a few agencies at a time. Tell us what you do and how your people get paid today.",
-    "cta": "Message us on LinkedIn",
+    "cta": "Email us",
     "beta": "During the beta, payouts run in Stripe's test mode, so no real money moves yet. Pricing is set at launch."
   },
   "footer": {
