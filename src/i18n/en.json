@@ -118,7 +118,7 @@
     "title": "Pending until it clears. Never paid back.",
     "body": "Each person who worked on the job, from the contractor to the professional who signed off, gets a share of what the client pays. Every share stays pending until the payment fully clears. Then it clears and everyone is paid, or it doesn't and no one owes anything.",
     "steps": [
-      { "title": "Stack the rate", "body": "Put everyone on the contract: contractor, recruiter, referral partner, PM, your margin. Each gets dollars per hour, locked when the work starts." },
+      { "title": "Stack the rate", "body": "Put everyone on the contract: contractor, recruiter, referral partner, PM, your margin. Each gets a set slice of every hour the contractor bills, locked when the work starts." },
       { "title": "Bill one clean invoice", "body": "Hours get approved, the client gets a single invoice with a payment link. They see the total, never the split." },
       { "title": "Pending until it fully clears", "body": "When the client pays, every share shows up as pending for its owner. It stays pending until the payment has completely cleared. Nobody fronts payroll." },
       { "title": "It clears or it doesn't", "body": "If it clears, everyone is paid, for good. If it doesn't, no one is paid and no one owes a thing. You'll never have to pay money back." }
@@ -142,11 +142,12 @@
     "body": "Nothing you enter leaves this page unless you share the link yourself.",
     "build": "Build the rate",
     "buildBody": "Drag any slider. Set a share to $0 and it drops off the contract.",
+    "streamsNote": "Every share comes out of the same billed hour. Only the contractor works the hours; everyone else earns a slice of each one.",
     "presetLabel": "Start from a preset",
-    "perHour": "{amount}/hr",
-    "sliderLabel": "{name}, dollars per hour",
+    "perHour": "{amount} per billed hour",
+    "sliderLabel": "{name}'s share of each billed hour, in dollars",
     "whereGoes": "Where {amount} goes",
-    "summary": "{hours} hours at {rate}/hr. The client sees one invoice for {amount}. Nobody gets a cent until it's paid.",
+    "summary": "Of every {rate} billed hour: {shares}. {hours} hours make one invoice for {amount}, and nobody gets a cent until it's paid.",
     "hours": "Hours billed this month",
     "hoursValue": "{hours} h",
     "phaseLabel": "What happens to the payment",
@@ -167,13 +168,13 @@
     "linkNote": "The link holds only these example numbers. No names, nothing about you.",
     "reset": "Reset",
     "exampleNote": "Example numbers only. You set every rate on your own contracts.",
-    "barLabel": "{name} {amount} an hour",
-    "barTitle": "{name}: {amount}/hr"
+    "barLabel": "{name}: {amount} of every billed hour",
+    "barTitle": "{name}: {amount} per billed hour"
   },
   "receipt": {
     "eyebrow": "Someone sent you a split",
     "title": "Payout receipt",
-    "body": "The client pays {amount} for {hours} hours at {rate}/hr. Every share stays pending until that payment fully clears, then pays out in full.",
+    "body": "The client pays {amount} for {hours} hours the contractor billed at {rate} an hour. Of every billed hour: {shares}. Every share stays pending until that payment fully clears, then pays out in full.",
     "total": "Total paid out when it clears",
     "never": "You'll never have to pay it back.",
     "ifNot": "If the payment doesn't clear, no one is paid and no one owes anything. Example numbers, not an offer.",

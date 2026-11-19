@@ -9,6 +9,11 @@ import { fmt, rich } from "@/i18n";
 import { DEFAULT_SPLIT, HOURS, decodeSplit, encodeSplit, rateMax, type SplitState } from "@/lib/split-url";
 
 type Phase = "pending" | "cleared" | "failed";
+// "contractor $75, recruiter $5, …": each stream as a slice of one billed hour (Rod 11/18: never a wage of its own).
+const slices = (s: SplitState, names: Record<StreamKey, { name: string }>) =>
+  STREAMS.filter((x) => s.rates[x.key] > 0)
+    .map((x) => `${x.key === "system" ? names[x.key].name : names[x.key].name.toLocaleLowerCase()} ${money(s.rates[x.key])}`)
+    .join(", ");
 const totals = (s: SplitState) => {
   const rate = STREAMS.reduce((sum, x) => sum + s.rates[x.key], 0);
   return { rate, invoice: rate * s.hours };
@@ -69,6 +74,7 @@ export function PayoutPlayground({ invite }: { invite: string }) {
         <div className="md-card-outlined p-6">
           <h3 className="md-title-large">{t.build}</h3>
           <p className="md-body-medium mt-1 text-on-surface-variant">{t.buildBody}</p>
+          <p className="md-body-medium mt-2">{t.streamsNote}</p>
           <md-chip-set class="mt-4" aria-label={t.presetLabel}>
             {PRESETS.map((p) => (
               <MdFilterChip key={p.id} label={d.presets[p.id]} selected={split.preset === p.id} onPick={() => update({ preset: p.id, rates: p.rates })} />
@@ -83,7 +89,7 @@ export function PayoutPlayground({ invite }: { invite: string }) {
                     {d.streams[s.key].name}
                     <span className="md-body-medium hidden text-on-surface-variant sm:inline">· {d.streams[s.key].who}</span>
                   </span>
-                  <span className="figure md-body-medium">{fmt(t.perHour, { amount: money(split.rates[s.key]) })}</span>
+                  <span className="figure md-body-medium shrink-0 whitespace-nowrap">{fmt(t.perHour, { amount: money(split.rates[s.key]) })}</span>
                 </div>
                 <MdSlider label={fmt(t.sliderLabel, { name: d.streams[s.key].name })} min={0} max={rateMax(s.key)} step={1} value={split.rates[s.key]}
                   valueLabel={`$${split.rates[s.key]}`} onValue={(v) => setOne(s.key, v)} />
@@ -96,7 +102,7 @@ export function PayoutPlayground({ invite }: { invite: string }) {
           <md-elevation />
           <h3 className="md-title-large">{fmt(t.whereGoes, { amount: money(invoice) })}</h3>
           <p className="md-body-medium mt-1 text-on-surface-variant">
-            {fmt(t.summary, { hours: split.hours, rate: money(rate), amount: money(invoice) })}
+            {fmt(t.summary, { hours: split.hours, rate: money(rate), amount: money(invoice), shares: slices(split, d.streams) })}
           </p>
           <div className="mt-4"><SplitBar rates={split.rates} /></div>
           <div className="mt-4">
@@ -171,7 +177,7 @@ function Receipt({ split, invite, ref }: { split: SplitState; invite: string; re
       <p className="md-label-large text-primary">{r.eyebrow}</p>
       <h3 className="md-headline-small mt-1">{r.title}</h3>
       <p className="md-body-large mt-2 text-on-surface-variant">
-        {rich(r.body, { amount: <b className="text-on-surface">{money(invoice)}</b>, hours: split.hours, rate: money(rate) })}
+        {rich(r.body, { amount: <b className="text-on-surface">{money(invoice)}</b>, hours: split.hours, rate: money(rate), shares: slices(split, d.streams) })}
       </p>
       <div className="mt-4"><SplitBar rates={split.rates} height={28} /></div>
       <dl className="mt-4">

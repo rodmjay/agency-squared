@@ -118,7 +118,7 @@
     "title": "Pendiente hasta que se acredita. Nunca se devuelve.",
     "body": "Cada persona que trabajó en el proyecto, desde el contratista hasta el profesional que lo aprobó, recibe una parte de lo que paga el cliente. Cada parte queda pendiente hasta que el pago se acredita por completo. Entonces se acredita y a todos se les paga, o no se acredita y nadie debe nada.",
     "steps": [
-      { "title": "Arme la tarifa", "body": "Ponga a todos en el contrato: contratista, reclutador, socio que refirió, gerente de proyecto y su margen. Cada uno recibe dólares por hora, fijados cuando empieza el trabajo." },
+      { "title": "Arme la tarifa", "body": "Ponga a todos en el contrato: contratista, reclutador, socio que refirió, gerente de proyecto y su margen. Cada uno recibe una parte de cada hora que factura el contratista, fijada cuando empieza el trabajo." },
       { "title": "Cobre con una sola factura", "body": "Se aprueban las horas y el cliente recibe una sola factura con un enlace de pago. Ve el total, nunca el reparto." },
       { "title": "Pendiente hasta que se acredita", "body": "Cuando el cliente paga, cada parte aparece como pendiente para su dueño. Sigue pendiente hasta que el pago se acredita por completo. Nadie adelanta la nómina." },
       { "title": "Se acredita o no", "body": "Si se acredita, a todos se les paga, de forma definitiva. Si no, nadie cobra y nadie debe nada. Nunca tendrá que devolver dinero." }
@@ -142,11 +142,12 @@
     "body": "Nada de lo que ingrese sale de esta página, a menos que usted comparta el enlace.",
     "build": "Arme la tarifa",
     "buildBody": "Mueva cualquier control. Si pone una parte en $0, sale del contrato.",
+    "streamsNote": "Cada parte sale de la misma hora facturada. Solo el contratista trabaja las horas; los demás reciben una parte de cada una.",
     "presetLabel": "Empiece con un ejemplo",
-    "perHour": "{amount}/h",
-    "sliderLabel": "{name}, dólares por hora",
+    "perHour": "{amount} por hora facturada",
+    "sliderLabel": "Parte de {name} en cada hora facturada, en dólares",
     "whereGoes": "A dónde van {amount}",
-    "summary": "{hours} horas a {rate}/h. El cliente ve una sola factura por {amount}. Nadie recibe un centavo hasta que se paga.",
+    "summary": "De cada hora facturada a {rate}: {shares}. {hours} horas suman una sola factura por {amount}, y nadie recibe un centavo hasta que se paga.",
     "hours": "Horas facturadas este mes",
     "hoursValue": "{hours} h",
     "phaseLabel": "Qué pasa con el pago",
@@ -167,13 +168,13 @@
     "linkNote": "El enlace solo lleva estas cifras de ejemplo. Ningún nombre, nada sobre usted.",
     "reset": "Restablecer",
     "exampleNote": "Solo son cifras de ejemplo. Usted fija cada tarifa en sus propios contratos.",
-    "barLabel": "{name} {amount} por hora",
-    "barTitle": "{name}: {amount}/h"
+    "barLabel": "{name}: {amount} de cada hora facturada",
+    "barTitle": "{name}: {amount} por hora facturada"
   },
   "receipt": {
     "eyebrow": "Alguien le envió un reparto",
     "title": "Recibo de pagos",
-    "body": "El cliente paga {amount} por {hours} horas a {rate}/h. Cada parte queda pendiente hasta que ese pago se acredita por completo, y luego se paga completa.",
+    "body": "El cliente paga {amount} por {hours} horas que facturó el contratista, a {rate} la hora. De cada hora facturada: {shares}. Cada parte queda pendiente hasta que ese pago se acredita por completo, y luego se paga completa.",
     "total": "Total que se paga cuando se acredita",
     "never": "Nunca tendrá que devolverlo.",
     "ifNot": "Si el pago no se acredita, nadie cobra y nadie debe nada. Cifras de ejemplo, no una oferta.",
