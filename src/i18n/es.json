@@ -518,7 +518,8 @@
       "projectStatus": {
         "active": "Activo",
         "done": "Terminado"
-      }
+      },
+      "accountLabel": "Cuenta n.º {number}"
     },
     "contracts": {
       "title": "Contratos",
@@ -626,7 +627,8 @@
       "usageToast": "Uso guardado: {amount} con margen.",
       "filter": "Mostrar",
       "waitingOnly": "Esperando",
-      "everything": "Todo"
+      "everything": "Todo",
+      "rejectReason": "La agencia no lo aprobó."
     },
     "invoices": {
       "title": "Facturas",
@@ -736,7 +738,15 @@
       "noPrice": "No hay precio para el modelo de este agente.",
       "nothingToBill": "No hay nada listo para facturar en este proyecto.",
       "badMarkup": "El margen es un porcentaje de 0 a 100.",
-      "required": "Complete todos los campos."
+      "required": "Complete todos los campos.",
+      "onlyContractor": "Solo el contratista registra su propio tiempo.",
+      "onlyAgent": "Los agentes informan su propio uso a través de la API.",
+      "agentsByApi": "Agregue agentes a través de la API, donde el agente recibe su propia clave.",
+      "sharesFromAccount": "Las partes de reclutamiento y mercadeo vienen de la cuenta del cliente o del candidato. Déjelas en 0 aquí.",
+      "forbidden": "Usted no tiene acceso para hacer eso en esta agencia.",
+      "stale": "Alguien lo cambió primero. Ya está actualizado; intente de nuevo.",
+      "signedOut": "Su sesión terminó. Inicie sesión de nuevo.",
+      "payTimeout": "El pago de prueba aún no llega. Revise de nuevo en un minuto."
     }
   }
 }

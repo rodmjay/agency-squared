@@ -195,7 +195,7 @@ export function Clients() {
           return (
             <Card key={c.id}>
               <h2 className="md-title-large">{c.name}</h2>
-              <p className="md-body-medium mt-1 text-on-surface-variant">{c.contact} · {c.email}</p>
+              <p className="md-body-medium mt-1 text-on-surface-variant">{[c.contact, c.email].filter(Boolean).join(" · ")}</p>
               <h3 className="md-title-small mt-4 text-on-surface-variant">{d.clients.projects}</h3>
               {projects.length === 0 && <p className="md-body-medium mt-2">{d.clients.noProjects}</p>}
               <ul className="mt-2 flex flex-col gap-2">
@@ -673,7 +673,7 @@ function NewInvoice({ projectId }: { projectId?: string }) {
 }
 
 function InvoiceDetail({ id }: { id: string }) {
-  const { w, d, act, money, day, num, compact, source } = useWork();
+  const { w, d, act, money, day, num, compact } = useWork();
   const L = useLookups();
   const inv = byId(w.invoices, id);
   if (!inv) return <Back href="#/invoices" label={d.invoices.back} />;
@@ -697,12 +697,12 @@ function InvoiceDetail({ id }: { id: string }) {
             {next && <Btn icon={next.icon} onClick={() => act(next.a, next.ok)}>{next.label}</Btn>}
           </div>
         } />
-      {next && inv.status !== "draft" && source.mode === "demo" && <p className="md-body-medium -mt-3 mb-5 text-on-surface-variant">{d.invoices.testNote}</p>}
+      {next && inv.status !== "draft" && <p className="md-body-medium -mt-3 mb-5 text-on-surface-variant">{d.invoices.testNote}</p>}
       <div className="grid gap-6 xl:grid-cols-[2fr_1fr] [&>*]:min-w-0">
         <Card>
           <p className="md-label-large text-on-surface-variant">{d.invoices.billTo}</p>
           <p className="md-title-medium mt-1">{client.name}</p>
-          <p className="md-body-medium text-on-surface-variant">{client.contact} · {client.email}</p>
+          <p className="md-body-medium text-on-surface-variant">{[client.contact, client.email].filter(Boolean).join(" · ")}</p>
           <h2 className="md-title-large mt-6">{d.invoices.lines}</h2>
           <ul className="mt-2 flex flex-col divide-y divide-outline-variant border-y border-outline-variant">
             {inv.lines.map((l, i) => {
