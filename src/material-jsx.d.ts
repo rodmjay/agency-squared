@@ -22,6 +22,13 @@ declare module "react" {
       "md-slider": El;
       "md-switch": El;
       "md-outlined-text-field": El;
+      "md-icon-button": El;
+      "md-outlined-select": El;
+      "md-select-option": El;
+      "md-dialog": El;
+      "md-tabs": El;
+      "md-primary-tab": El;
+      "md-checkbox": El;
     }
   }
 }

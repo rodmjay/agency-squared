@@ -35,28 +35,64 @@
       {
         "label": "Month-end books",
         "steps": [
-          { "title": "Collect statements and receipts", "note": "Your Claude gathers them and flags what's missing." },
-          { "title": "Reconcile the numbers", "note": "Totals checked against the ledger." },
-          { "title": "CPA check and sign-off", "note": "A licensed accountant checks it. The sign-off is recorded." },
-          { "title": "Draft the invoice", "note": "Ready for your OK. The client sees one total." }
+          {
+            "title": "Collect statements and receipts",
+            "note": "Your Claude gathers them and flags what's missing."
+          },
+          {
+            "title": "Reconcile the numbers",
+            "note": "Totals checked against the ledger."
+          },
+          {
+            "title": "CPA check and sign-off",
+            "note": "A licensed accountant checks it. The sign-off is recorded."
+          },
+          {
+            "title": "Draft the invoice",
+            "note": "Ready for your OK. The client sees one total."
+          }
         ]
       },
       {
         "label": "Client contract",
         "steps": [
-          { "title": "Draft from your template", "note": "Terms filled in from the proposal." },
-          { "title": "Flag unusual clauses", "note": "Changes from your standard terms, highlighted." },
-          { "title": "Attorney review", "note": "A lawyer reviews the flagged terms and approves or asks for changes." },
-          { "title": "Send it to the client", "note": "After your OK." }
+          {
+            "title": "Draft from your template",
+            "note": "Terms filled in from the proposal."
+          },
+          {
+            "title": "Flag unusual clauses",
+            "note": "Changes from your standard terms, highlighted."
+          },
+          {
+            "title": "Attorney review",
+            "note": "A lawyer reviews the flagged terms and approves or asks for changes."
+          },
+          {
+            "title": "Send it to the client",
+            "note": "After your OK."
+          }
         ]
       },
       {
         "label": "New client setup",
         "steps": [
-          { "title": "Collect the client's documents", "note": "Requested, gathered and checked for completeness." },
-          { "title": "Paralegal preparation", "note": "A paralegal prepares the engagement filings for review." },
-          { "title": "Open the account and project", "note": "Set up with the right people and rates." },
-          { "title": "Send the welcome and first proposal", "note": "Drafted for your OK." }
+          {
+            "title": "Collect the client's documents",
+            "note": "Requested, gathered and checked for completeness."
+          },
+          {
+            "title": "Paralegal preparation",
+            "note": "A paralegal prepares the engagement filings for review."
+          },
+          {
+            "title": "Open the account and project",
+            "note": "Set up with the right people and rates."
+          },
+          {
+            "title": "Send the welcome and first proposal",
+            "note": "Drafted for your OK."
+          }
         ]
       }
     ]
@@ -67,18 +103,42 @@
     "body": "AI shouldn't sign off on the books alone. Coming soon: send a step to a credentialed professional, a CPA or an attorney for example, and get a recorded, signed sign-off your workflow can trust.",
     "step": "Step {n}",
     "steps": [
-      { "title": "Your workflow asks", "body": "When it reaches a step a person must do, your Claude or your system requests a human step through AgencyPro." },
-      { "title": "A credentialed pro takes it", "body": "A professional who holds the right credential, such as a CPA or an attorney, claims the step and gets the documents and context." },
-      { "title": "They decide, on the record", "body": "Approve, reject or ask for changes. The sign-off is recorded and signed, with who made it and when." },
-      { "title": "Your workflow carries on", "body": "The answer comes back to your workflow, and the professional's share goes into the same fair payout." }
+      {
+        "title": "Your workflow asks",
+        "body": "When it reaches a step a person must do, your Claude or your system requests a human step through AgencyPro."
+      },
+      {
+        "title": "A credentialed pro takes it",
+        "body": "A professional who holds the right credential, such as a CPA or an attorney, claims the step and gets the documents and context."
+      },
+      {
+        "title": "They decide, on the record",
+        "body": "Approve, reject or ask for changes. The sign-off is recorded and signed, with who made it and when."
+      },
+      {
+        "title": "Your workflow carries on",
+        "body": "The answer comes back to your workflow, and the professional's share goes into the same fair payout."
+      }
     ],
     "kindsTitle": "Kinds of human steps",
     "coming": "Coming",
     "kinds": [
-      { "title": "CPA check", "body": "A licensed accountant checks the numbers and signs off (non-attest)." },
-      { "title": "Attorney review", "body": "A lawyer reviews an agreement or a filing." },
-      { "title": "Paralegal preparation", "body": "Forms and filings prepared for an attorney's review." },
-      { "title": "Notarization", "body": "Through a notary partner." }
+      {
+        "title": "CPA check",
+        "body": "A licensed accountant checks the numbers and signs off (non-attest)."
+      },
+      {
+        "title": "Attorney review",
+        "body": "A lawyer reviews an agreement or a filing."
+      },
+      {
+        "title": "Paralegal preparation",
+        "body": "Forms and filings prepared for an attorney's review."
+      },
+      {
+        "title": "Notarization",
+        "body": "Through a notary partner."
+      }
     ]
   },
   "humanDemo": {
@@ -87,10 +147,22 @@
     "docMeta": "Prepared by your AI · 14 pages",
     "status": "Step status",
     "stages": [
-      { "label": "Requested", "text": "Your workflow calls request_human_step: “Check the year-end reconciliation and sign off.”" },
-      { "label": "Claimed", "text": "A professional with the right credential claims it and opens the documents." },
-      { "label": "In review", "text": "They check the numbers against the source documents. AI did the prep; a person makes the call." },
-      { "label": "Approved", "text": "Sign-off recorded and signed: who decided, their role, and when. Your workflow picks it up and carries on." }
+      {
+        "label": "Requested",
+        "text": "Your workflow calls request_human_step: “Check the year-end reconciliation and sign off.”"
+      },
+      {
+        "label": "Claimed",
+        "text": "A professional with the right credential claims it and opens the documents."
+      },
+      {
+        "label": "In review",
+        "text": "They check the numbers against the source documents. AI did the prep; a person makes the call."
+      },
+      {
+        "label": "Approved",
+        "text": "Sign-off recorded and signed: who decided, their role, and when. Your workflow picks it up and carries on."
+      }
     ],
     "example": "Example. Human steps are coming soon; none is switched on for clients yet."
   },
@@ -118,10 +190,22 @@
     "title": "Pending until it clears. Never paid back.",
     "body": "Each person who worked on the job, from the contractor to the professional who signed off, gets a share of what the client pays. Every share stays pending until the payment fully clears. Then it clears and everyone is paid, or it doesn't and no one owes anything.",
     "steps": [
-      { "title": "Stack the rate", "body": "Put everyone on the contract: contractor, recruiter, referral partner, PM, your margin. Each gets a set slice of every hour the contractor bills, locked when the work starts." },
-      { "title": "Bill one clean invoice", "body": "Hours get approved, the client gets a single invoice with a payment link. They see the total, never the split." },
-      { "title": "Pending until it fully clears", "body": "When the client pays, every share shows up as pending for its owner. It stays pending until the payment has completely cleared. Nobody fronts payroll." },
-      { "title": "It clears or it doesn't", "body": "If it clears, everyone is paid, for good. If it doesn't, no one is paid and no one owes a thing. You'll never have to pay money back." }
+      {
+        "title": "Stack the rate",
+        "body": "Put everyone on the contract: contractor, recruiter, referral partner, PM, your margin. Each gets a set slice of every hour the contractor bills, locked when the work starts."
+      },
+      {
+        "title": "Bill one clean invoice",
+        "body": "Hours get approved, the client gets a single invoice with a payment link. They see the total, never the split."
+      },
+      {
+        "title": "Pending until it fully clears",
+        "body": "When the client pays, every share shows up as pending for its owner. It stays pending until the payment has completely cleared. Nobody fronts payroll."
+      },
+      {
+        "title": "It clears or it doesn't",
+        "body": "If it clears, everyone is paid, for good. If it doesn't, no one is paid and no one owes a thing. You'll never have to pay money back."
+      }
     ]
   },
   "split": {
@@ -187,15 +271,51 @@
     "everyone": "The full stack"
   },
   "streams": {
-    "contractor": { "name": "Contractor", "who": "Does the work", "blurb": "The person on the keyboard. Their rate is locked on the contract." },
-    "recruiter": { "name": "Recruiter", "who": "Found the contractor", "blurb": "Whoever brought the talent in keeps earning while that talent bills." },
-    "recruiting": { "name": "Recruiting agency", "who": "The recruiter's firm", "blurb": "Their shop gets its own line, paid straight to it." },
-    "marketer": { "name": "Marketer", "who": "Brought the client", "blurb": "Referral partners earn a cut of every hour the client they sent pays for." },
-    "marketing": { "name": "Marketing agency", "who": "The marketer's firm", "blurb": "Agencies that send you work get paid like partners, not with a thank-you note." },
-    "pm": { "name": "Project manager", "who": "Keeps the work moving", "blurb": "Coordination is work too. It gets its own line." },
-    "am": { "name": "Account manager", "who": "Keeps the client happy", "blurb": "Owns the relationship and earns a slice of every hour the contractor bills." },
-    "agency": { "name": "Your agency", "who": "Your margin", "blurb": "What's left for the business, without spreadsheet surgery." },
-    "system": { "name": "AgencyPro", "who": "The platform fee", "blurb": "Our cut, shown as its own line. No hidden spread." }
+    "contractor": {
+      "name": "Contractor",
+      "who": "Does the work",
+      "blurb": "The person on the keyboard. Their rate is locked on the contract."
+    },
+    "recruiter": {
+      "name": "Recruiter",
+      "who": "Found the contractor",
+      "blurb": "Whoever brought the talent in keeps earning while that talent bills."
+    },
+    "recruiting": {
+      "name": "Recruiting agency",
+      "who": "The recruiter's firm",
+      "blurb": "Their shop gets its own line, paid straight to it."
+    },
+    "marketer": {
+      "name": "Marketer",
+      "who": "Brought the client",
+      "blurb": "Referral partners earn a cut of every hour the client they sent pays for."
+    },
+    "marketing": {
+      "name": "Marketing agency",
+      "who": "The marketer's firm",
+      "blurb": "Agencies that send you work get paid like partners, not with a thank-you note."
+    },
+    "pm": {
+      "name": "Project manager",
+      "who": "Keeps the work moving",
+      "blurb": "Coordination is work too. It gets its own line."
+    },
+    "am": {
+      "name": "Account manager",
+      "who": "Keeps the client happy",
+      "blurb": "Owns the relationship and earns a slice of every hour the contractor bills."
+    },
+    "agency": {
+      "name": "Your agency",
+      "who": "Your margin",
+      "blurb": "What's left for the business, without spreadsheet surgery."
+    },
+    "system": {
+      "name": "AgencyPro",
+      "who": "The platform fee",
+      "blurb": "Our cut, shown as its own line. No hidden spread."
+    }
   },
   "streamsSection": {
     "eyebrow": "Who gets paid",
@@ -203,9 +323,18 @@
     "body": "Use the ones your deal needs. Leave the rest at zero."
   },
   "perks": [
-    { "title": "Bring your own Claude", "body": "AgencyPro plugs into the Claude you already use. It acts with your permissions only, and we never run or bill you for the AI." },
-    { "title": "Your bench stays yours", "body": "Clients see their projects, totals and invoices. Never your team's names, rates or pay." },
-    { "title": "Licensed sign-offs, on the record", "body": "When a step needs an accountant or attorney, it goes to a real professional and their sign-off is recorded." }
+    {
+      "title": "Bring your own Claude",
+      "body": "AgencyPro plugs into the Claude you already use. It acts with your permissions only, and we never run or bill you for the AI."
+    },
+    {
+      "title": "Your bench stays yours",
+      "body": "Clients see their projects, totals and invoices. Never your team's names, rates or pay."
+    },
+    {
+      "title": "Licensed sign-offs, on the record",
+      "body": "When a step needs an accountant or attorney, it goes to a real professional and their sign-off is recorded."
+    }
   ],
   "claude": {
     "label": "Runs from your Claude",
@@ -216,12 +345,30 @@
     "eyebrow": "Questions",
     "title": "The short answers.",
     "items": [
-      { "q": "Who are the real people?", "a": "Credentialed professionals, such as CPAs and attorneys, who hold the credential a step needs. Human steps are coming soon: none is switched on for clients yet." },
-      { "q": "Does AgencyPro run the AI?", "a": "No. You bring your own Claude and add the AgencyPro connector. It acts with your permissions only, and we never run or bill you for the AI." },
-      { "q": "When does a share get paid?", "a": "Your share shows as Pending until the client's payment fully clears: a few days for a bank transfer, 60 days for an ACH debit, about 4 months for a card. Then it's paid, for good." },
-      { "q": "What if the client's payment doesn't clear?", "a": "Then no one is paid and no one owes anything. Nobody ever has to pay money back." },
-      { "q": "What do clients see?", "a": "Their projects, totals and invoices. Never your team's names, rates or pay." },
-      { "q": "Can I use it today?", "a": "AgencyPro is in a private beta, by invitation. During the beta, payouts run in Stripe's test mode, so no real money moves yet. Pricing is set at launch." }
+      {
+        "q": "Who are the real people?",
+        "a": "Credentialed professionals, such as CPAs and attorneys, who hold the credential a step needs. Human steps are coming soon: none is switched on for clients yet."
+      },
+      {
+        "q": "Does AgencyPro run the AI?",
+        "a": "No. You bring your own Claude and add the AgencyPro connector. It acts with your permissions only, and we never run or bill you for the AI."
+      },
+      {
+        "q": "When does a share get paid?",
+        "a": "Your share shows as Pending until the client's payment fully clears: a few days for a bank transfer, 60 days for an ACH debit, about 4 months for a card. Then it's paid, for good."
+      },
+      {
+        "q": "What if the client's payment doesn't clear?",
+        "a": "Then no one is paid and no one owes anything. Nobody ever has to pay money back."
+      },
+      {
+        "q": "What do clients see?",
+        "a": "Their projects, totals and invoices. Never your team's names, rates or pay."
+      },
+      {
+        "q": "Can I use it today?",
+        "a": "AgencyPro is in a private beta, by invitation. During the beta, payouts run in Stripe's test mode, so no real money moves yet. Pricing is set at launch."
+      }
     ]
   },
   "roster": {
@@ -230,9 +377,18 @@
     "body": "Accountants, attorneys and other credentialed pros: take review and sign-off steps from AI-run workflows. The prep is done before it reaches you. You make the call, and your share is paid once the client's payment clears. You'll never have to pay it back.",
     "cta": "Ask about joining",
     "items": [
-      { "title": "Work arrives prepared", "body": "Documents, context and the AI's draft in one place." },
-      { "title": "Claim what fits your day", "body": "Pick up the steps that match your credential." },
-      { "title": "Your decision, on the record", "body": "Approve, reject or ask for changes." }
+      {
+        "title": "Work arrives prepared",
+        "body": "Documents, context and the AI's draft in one place."
+      },
+      {
+        "title": "Claim what fits your day",
+        "body": "Pick up the steps that match your credential."
+      },
+      {
+        "title": "Your decision, on the record",
+        "body": "Approve, reject or ask for changes."
+      }
     ]
   },
   "invite": {
@@ -250,5 +406,337 @@
     "title": "This step didn't clear.",
     "body": "The page you're looking for isn't here. Nothing is owed.",
     "cta": "Back to AgencyPro"
+  },
+  "work": {
+    "demoBanner": "Demo agency with made-up people and clients. No real money moves.",
+    "liveBanner": "Test mode. No real money moves.",
+    "brand": "AgencyPro",
+    "nav": {
+      "main": "Main",
+      "dashboard": "Dashboard",
+      "clients": "Clients",
+      "people": "People",
+      "contracts": "Contracts",
+      "time": "Time and usage",
+      "invoices": "Invoices",
+      "payouts": "Payouts",
+      "settings": "Settings",
+      "menu": "Menu",
+      "close": "Close menu",
+      "signOut": "Sign out",
+      "language": "Language",
+      "create": "New",
+      "skip": "Skip to content"
+    },
+    "signIn": {
+      "title": "Sign in to the AgencyPro demo",
+      "body": "Use the demo admin login you were given. Everything inside is made up.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "wrong": "That email and password don't match the demo login.",
+      "back": "Back to the home page"
+    },
+    "pipeline": {
+      "title": "Money pipeline",
+      "waiting": "Waiting for approval",
+      "ready": "Ready to invoice",
+      "invoiced": "Invoiced, not paid",
+      "clearing": "Paid, clearing",
+      "paid": "Cleared and paid out"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "hello": "Good to see you, {name}.",
+      "next": "Next steps",
+      "approve": "Approve {count} time entries",
+      "approveBody": "{amount} of billed hours waiting for your OK.",
+      "invoice": "Invoice {client}",
+      "invoiceBody": "{amount} of approved work is ready to bill.",
+      "follow": "{number} is waiting on {client}",
+      "followBody": "Sent {date} for {amount}.",
+      "activate": "Start the {title} contract",
+      "activateBody": "It's a draft. Nobody can log work on it yet.",
+      "allClear": "Nothing needs you right now.",
+      "team": "Your team",
+      "teamBody": "{people} people and {agents} agents",
+      "recent": "Recent work",
+      "seeAll": "See all"
+    },
+    "kind": {
+      "person": "Person",
+      "agent": "AI agent"
+    },
+    "roles": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "contractor": "Contractor",
+      "recruiter": "Recruiter",
+      "marketer": "Marketer",
+      "pm": "Project manager",
+      "am": "Account manager"
+    },
+    "people": {
+      "title": "People and agents",
+      "body": "Everyone who works in the agency. People bill hours; agents bill the tokens they use. Both fill the same seats.",
+      "add": "Add someone",
+      "addTitle": "Add a person or an agent",
+      "name": "Name",
+      "email": "Email",
+      "title2": "What they do",
+      "kindLabel": "Who fills the seat",
+      "role": "Role",
+      "model": "Model",
+      "you": "you",
+      "all": "Everyone",
+      "onlyPeople": "People",
+      "onlyAgents": "Agents",
+      "contracts": "{count} contracts",
+      "noContracts": "No contracts",
+      "save": "Add",
+      "cancel": "Cancel"
+    },
+    "clients": {
+      "title": "Clients",
+      "body": "The companies you work for and their projects.",
+      "add": "Add client",
+      "addTitle": "Add a client",
+      "name": "Company name",
+      "contact": "Contact person",
+      "email": "Contact email",
+      "projects": "Projects",
+      "addProject": "Add project",
+      "projectTitle": "Add a project",
+      "projectName": "Project name",
+      "unbilled": "Ready to invoice",
+      "billed": "Invoiced so far",
+      "noProjects": "No projects yet.",
+      "contractsOn": "Contracts on this project",
+      "open": "Open",
+      "save": "Add",
+      "cancel": "Cancel",
+      "projectStatus": {
+        "active": "Active",
+        "done": "Done"
+      }
+    },
+    "contracts": {
+      "title": "Contracts",
+      "body": "Who works on what, and how each billed hour is split.",
+      "add": "New contract",
+      "worker": "Who does the work",
+      "project": "Project",
+      "client": "Client",
+      "billing": "Billing",
+      "byHours": "Hours",
+      "byTokens": "Tokens",
+      "rate": "Client pays",
+      "perBilledHour": "{amount} per billed hour",
+      "tokensRate": "Token cost + {percent}%",
+      "status": {
+        "draft": "Draft",
+        "active": "Active",
+        "ended": "Ended"
+      },
+      "none": "No contracts yet.",
+      "back": "All contracts",
+      "split": "How each billed hour is split",
+      "splitNote": "Every share comes out of the same billed hour. Only the contractor's hours are billed; everyone else earns a slice of each one.",
+      "shareOf": "{amount} of each billed hour",
+      "holder": "Goes to",
+      "toAgency": "The agency",
+      "agentShare": "{name} is an AI agent, so this share stays with the agency.",
+      "tokensTitle": "How agent work is billed",
+      "tokensBody": "{name} runs on {model}. The client pays the token cost at the dated model price plus the agency's {percent}% markup. All of it goes to the agency; it's never split among the shares.",
+      "priceIn": "Input",
+      "priceOut": "Output",
+      "perMTok": "{amount} per million tokens",
+      "example": "Example: 1 million input and 200,000 output tokens cost {cost}; the client pays {total}.",
+      "activate": "Start contract",
+      "end": "End contract",
+      "activated": "Contract started. Work can be logged on it now.",
+      "logged": "Logged so far",
+      "hoursLogged": "{hours} hours",
+      "usageLogged": "{tokens} tokens",
+      "newTitle": "New contract",
+      "titleLabel": "Contract name",
+      "pickProject": "Pick a project",
+      "pickWorker": "Pick a person or an agent",
+      "sharesTitle": "Shares of each billed hour",
+      "sharesHint": "The contractor's pay per billed hour, then each other share in dollars. The client pays the total.",
+      "nobody": "Nobody",
+      "total": "Client pays per billed hour",
+      "create": "Create draft",
+      "cancel": "Cancel",
+      "created": "Draft saved. Start it when everyone agrees.",
+      "agentPicked": "{name} is an AI agent: it bills tokens, not hours. No split to set.",
+      "streams": {
+        "contractor": "Contractor",
+        "recruiter": "Recruiter",
+        "marketer": "Marketer",
+        "pm": "Project manager",
+        "am": "Account manager",
+        "agency": "Agency margin",
+        "system": "AgencyPro fee"
+      }
+    },
+    "time": {
+      "title": "Time and usage",
+      "body": "People log hours and agents report tokens. Hours wait for your approval; agent usage is billed as it's reported.",
+      "hoursTab": "Hours",
+      "usageTab": "Agent usage",
+      "logTime": "Log time",
+      "logUsage": "Report usage",
+      "approve": "Approve",
+      "reject": "Reject",
+      "approveSelected": "Approve {count}",
+      "rejectSelected": "Reject {count}",
+      "selectAll": "Select all waiting",
+      "date": "Date",
+      "who": "Who",
+      "contract": "Contract",
+      "hours": "Hours",
+      "note": "What was done",
+      "amount": "Client pays",
+      "status": "Status",
+      "statuses": {
+        "submitted": "Waiting",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "invoiced": "Invoiced"
+      },
+      "model": "Model",
+      "tokensIn": "Tokens in",
+      "tokensOut": "Tokens out",
+      "cost": "Token cost",
+      "markup": "Markup",
+      "billedYet": "Invoiced",
+      "notYet": "Not yet",
+      "none": "Nothing logged yet.",
+      "noneWaiting": "Nothing is waiting for approval.",
+      "noneUsage": "No agent usage yet.",
+      "logTitle": "Log time",
+      "usageTitle": "Report agent usage",
+      "pickContract": "Pick a contract",
+      "save": "Save",
+      "cancel": "Cancel",
+      "approvedToast": "{count} approved. They're ready to invoice.",
+      "rejectedToast": "{count} rejected.",
+      "loggedToast": "Time saved. It's waiting for approval.",
+      "usageToast": "Usage saved: {amount} with markup.",
+      "filter": "Show",
+      "waitingOnly": "Waiting",
+      "everything": "Everything"
+    },
+    "invoices": {
+      "title": "Invoices",
+      "body": "One invoice per project brings together the approved hours and the agent usage since the last one.",
+      "new": "New invoice",
+      "newTitle": "New invoice",
+      "pickProject": "Pick a project",
+      "readyLine": "Approved hours: {hours}. Agent usage lines: {usage}.",
+      "nothing": "Nothing ready to invoice on this project.",
+      "create": "Create draft",
+      "cancel": "Cancel",
+      "number": "Invoice",
+      "client": "Client",
+      "project": "Project",
+      "total": "Total",
+      "date": "Date",
+      "status": "Status",
+      "statuses": {
+        "draft": "Draft",
+        "sent": "Sent",
+        "paid": "Paid, clearing",
+        "cleared": "Cleared"
+      },
+      "none": "No invoices yet.",
+      "back": "All invoices",
+      "billTo": "Bill to",
+      "lines": "Lines",
+      "line": "Work",
+      "qty": "Quantity",
+      "rate": "Rate",
+      "amount": "Amount",
+      "hoursQty": "{hours} hours",
+      "hourRate": "{amount} per billed hour",
+      "tokensQty": "{in} in, {out} out",
+      "tokenRate": "{in} / {out} per million",
+      "usageDetail": "Token cost {cost} + {percent}% markup",
+      "totalDue": "Total due",
+      "send": "Send to client",
+      "pay": "Client pays (test)",
+      "clear": "Payment clears (test)",
+      "sentToast": "Sent to {client}.",
+      "paidToast": "Paid. Shares are pending until the payment clears.",
+      "clearedToast": "Cleared. Everyone's share is paid out.",
+      "testNote": "In test mode you play the client: pay, then let the payment clear.",
+      "clearsOn": "Clears {date}",
+      "whereItGoes": "Where the money goes",
+      "createdToast": "Draft {number} created."
+    },
+    "payouts": {
+      "title": "Payouts",
+      "body": "Each share is paid once the client's payment clears. Nothing is paid early, and nothing is ever taken back.",
+      "byPayee": "By payee",
+      "payee": "Payee",
+      "invoiced": "On an invoice",
+      "clearing": "Clearing",
+      "paid": "Paid",
+      "total": "Total",
+      "agency": "Harbor Lane Agency (you)",
+      "agencyNote": "The agency's margin, agents' shares and agent usage (token cost plus markup).",
+      "none": "No payouts yet. They appear once an invoice is sent.",
+      "streams": {
+        "contractor": "Work",
+        "recruiter": "Recruiting",
+        "marketer": "Marketing",
+        "pm": "Project management",
+        "am": "Account management",
+        "agency": "Agency margin",
+        "system": "AgencyPro fee",
+        "usage": "Agent usage"
+      },
+      "detail": "Detail",
+      "invoice": "Invoice",
+      "stream": "For",
+      "amount": "Amount",
+      "status": "Status",
+      "statuses": {
+        "invoiced": "Invoiced",
+        "clearing": "Clearing",
+        "paid": "Paid"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "agency": "Agency",
+      "markup": "Markup on agent usage",
+      "markupHint": "Added on top of the token cost on every agent line. The client sees it on the invoice.",
+      "save": "Save",
+      "saved": "Markup saved: {percent}%. New agent usage uses it.",
+      "prices": "Model prices",
+      "pricesHint": "Dated per-model token prices, in dollars per million tokens.",
+      "since": "Since {date}",
+      "demo": "Demo data",
+      "demoHint": "Start the demo over with a different agency. Your changes in this browser are replaced.",
+      "hybrid": "People and agents",
+      "people": "People only",
+      "agents": "Agents only",
+      "reset": "Start over",
+      "resetToast": "The demo started over."
+    },
+    "errors": {
+      "generic": "That didn't work. Please try again.",
+      "noWorker": "Pick who does the work.",
+      "noRate": "Set the contractor's pay per billed hour.",
+      "notActive": "Start the contract before logging work on it.",
+      "badHours": "Hours must be more than 0 and at most 24.",
+      "badTokens": "Enter the tokens used.",
+      "noPrice": "There's no price for this agent's model.",
+      "nothingToBill": "Nothing ready to invoice on this project.",
+      "badMarkup": "The markup is a percent from 0 to 100.",
+      "required": "Fill in every field."
+    }
   }
 }
