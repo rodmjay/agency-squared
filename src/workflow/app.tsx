@@ -123,6 +123,17 @@ export function AgencyApp({ source, lang: start, gate, onSignOut }: {
       <span className="truncate">{w.agency.name}</span>
     </a>
   );
+  // The top bar on phones: the mark alone below ~420px, so the name never cuts off next to the language menu.
+  const barBrand = (
+    <a href="#/dashboard" aria-label={w.agency.name} className="md-title-medium flex min-w-0 items-center gap-2 font-medium">
+      <span className="flex h-6 w-9 shrink-0 gap-0.5 overflow-hidden rounded-md" aria-hidden>
+        <span className="flex-[5]" style={{ background: "var(--s-contractor)" }} />
+        <span className="flex-[2]" style={{ background: "var(--s-marketer)" }} />
+        <span className="flex-[3]" style={{ background: "var(--s-agency)" }} />
+      </span>
+      <span className="hidden truncate min-[420px]:inline">{w.agency.name}</span>
+    </a>
+  );
   const Screen = {
     dashboard: S.Dashboard, clients: S.Clients, people: S.People, contracts: S.Contracts,
     time: S.Time, invoices: S.Invoices, payouts: S.Payouts, settings: S.Settings,
@@ -134,7 +145,7 @@ export function AgencyApp({ source, lang: start, gate, onSignOut }: {
         className="md-label-large sr-only z-50 rounded-md bg-primary px-4 py-2 text-on-primary focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
         {d.nav.skip}
       </a>
-      <p className="md-label-medium bg-tertiary-container px-4 py-1.5 text-center text-on-tertiary-container">
+      <p className="md-label-medium bg-secondary-container px-4 py-1.5 text-center text-on-secondary-container">
         {source.mode === "demo" ? d.demoBanner : d.liveBanner}
       </p>
       <div className="flex min-h-[calc(100dvh-30px)] bg-surface-container-low">
@@ -157,7 +168,7 @@ export function AgencyApp({ source, lang: start, gate, onSignOut }: {
           <header className="flex items-center justify-between gap-2 px-2 py-2 sm:px-4">
             <div className="flex min-w-0 items-center gap-1 lg:hidden">
               <IconBtn icon="menu" label={d.nav.menu} onClick={() => setMenu(true)} />
-              {brand}
+              {barBrand}
             </div>
             <span className="hidden lg:block" />
             <div className="flex shrink-0 items-center gap-1 sm:gap-2">

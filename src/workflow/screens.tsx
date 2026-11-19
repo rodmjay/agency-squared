@@ -736,7 +736,7 @@ function InvoiceDetail({ id }: { id: string }) {
               const m = L.member(pid);
               return (
                 <li key={pid} className="flex items-center justify-between gap-3 py-3">
-                  <span className="md-body-large min-w-0">{m ? m.name : pid === "system" ? d.payouts.streams.system : d.payouts.agency}</span>
+                  <span className="md-body-large min-w-0">{m ? m.name : pid === "system" ? d.payouts.streams.system : fmt(d.payouts.agency, { name: w.agency.name })}</span>
                   <Figure className="md-body-large">{money(round2(amount))}</Figure>
                 </li>
               );
@@ -783,7 +783,7 @@ export function Payouts() {
                     {m ? <Who m={m} sub={streams.map((s) => d.payouts.streams[s]).join(" · ")} /> : (
                       <span className="flex items-center gap-3">
                         <span aria-hidden className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container"><md-icon>account_balance</md-icon></span>
-                        <span className="min-w-0"><span className="md-body-large block">{d.payouts.agency}</span><span className="md-body-medium block text-on-surface-variant">{d.payouts.agencyNote}</span></span>
+                        <span className="min-w-0"><span className="md-body-large block">{fmt(d.payouts.agency, { name: w.agency.name })}</span><span className="md-body-medium block text-on-surface-variant">{d.payouts.agencyNote}</span></span>
                       </span>
                     )}
                   </span>
@@ -807,7 +807,7 @@ export function Payouts() {
               return (
                 <li key={i} className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-3">
                   <span className="min-w-0">
-                    <span className="md-body-large block">{L.member(p.payeeId)?.name ?? d.payouts.agency}</span>
+                    <span className="md-body-large block">{L.member(p.payeeId)?.name ?? fmt(d.payouts.agency, { name: w.agency.name })}</span>
                     <span className="md-body-medium block text-on-surface-variant">{d.payouts.streams[p.stream]} · <a className="text-primary" href={`#/invoices/${inv.id}`}>{inv.number}</a></span>
                   </span>
                   <span className="flex items-center gap-3"><Figure className="md-body-large">{money(p.amount)}</Figure><Chip tone={tone[p.status]}>{d.payouts.statuses[p.status]}</Chip></span>

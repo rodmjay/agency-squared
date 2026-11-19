@@ -44,7 +44,7 @@ function SignIn({ lang, setLang, onIn }: { lang: Lang; setLang: (l: Lang) => voi
   }
   return (
     <>
-      <p className="md-label-medium bg-tertiary-container px-4 py-1.5 text-center text-on-tertiary-container">{d.demoBanner}</p>
+      <p className="md-label-medium bg-secondary-container px-4 py-1.5 text-center text-on-secondary-container">{d.demoBanner}</p>
       <main id="main" className="flex min-h-[calc(100dvh-30px)] items-center justify-center bg-surface-container-low px-4 py-10">
         <div className="w-full max-w-md rounded-3xl bg-surface p-6 sm:p-8">
           <div className="mb-6 flex items-center justify-between gap-3">

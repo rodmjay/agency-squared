@@ -680,11 +680,11 @@
       "body": "Each share is paid once the client's payment clears. Nothing is paid early, and nothing is ever taken back.",
       "byPayee": "By payee",
       "payee": "Payee",
-      "invoiced": "On an invoice",
+      "invoiced": "Invoiced",
       "clearing": "Clearing",
       "paid": "Paid",
       "total": "Total",
-      "agency": "Harbor Lane Agency (you)",
+      "agency": "{name} (you)",
       "agencyNote": "The agency's margin, agents' shares and agent usage (token cost plus markup).",
       "none": "No payouts yet. They appear once an invoice is sent.",
       "streams": {

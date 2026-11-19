@@ -680,11 +680,11 @@
       "body": "Cada parte se paga cuando el pago del cliente se compensa. Nada se paga antes y nada se quita después.",
       "byPayee": "Por beneficiario",
       "payee": "Beneficiario",
-      "invoiced": "En una factura",
+      "invoiced": "Facturado",
       "clearing": "En compensación",
       "paid": "Pagado",
       "total": "Total",
-      "agency": "Harbor Lane Agency (usted)",
+      "agency": "{name} (usted)",
       "agencyNote": "El margen de la agencia, las partes de los agentes y el uso de los agentes (costo de tokens más margen).",
       "none": "Todavía no hay pagos. Aparecen cuando se envía una factura.",
       "streams": {
