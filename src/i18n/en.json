@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "AgencyPro · Your AI does the work. Real people fill the gaps.",
-    "description": "AgencyPro works with Claude through MCP and with your systems through its API. Steps only a person should do can go to credentialed professionals, and everyone is paid fairly once the payment clears.",
+    "description": "AgencyPro works with Claude through MCP and with your systems through its API. Steps only a person should do can go to credentialed professionals, and everyone on the job gets a guaranteed share.",
     "ogAlt": "AgencyPro: an AI workflow with one step handled by a real person",
     "skip": "Skip to content",
     "language": "Language"
@@ -21,7 +21,7 @@
   "hero": {
     "badge": "Works with Claude · MCP and API · Private beta",
     "title": "Your AI does the work. Real people fill the gaps.",
-    "body": "AgencyPro plugs into Claude through MCP and into your systems through its API. When a workflow reaches a step only a person should do, like a professional review and sign-off, it can go to a credentialed professional, and the sign-off comes back on the record. Everyone who worked on it gets paid fairly, and no one ever pays it back.",
+    "body": "AgencyPro plugs into Claude through MCP and into your systems through its API. When a workflow reaches a step only a person should do, like a professional review and sign-off, it can go to a credentialed professional, and the sign-off comes back on the record. Everyone who worked on it gets a guaranteed share.",
     "ctaHuman": "See a human step",
     "ctaInvite": "Get an invite"
   },
@@ -186,9 +186,9 @@
     "apiNote": "Preview. The connector and the API share the same operations; endpoint details may change before launch."
   },
   "how": {
-    "eyebrow": "And everyone gets paid fairly",
-    "title": "Pending until it clears. Never paid back.",
-    "body": "Each person who worked on the job, from the contractor to the professional who signed off, gets a share of what the client pays. Every share stays pending until the payment fully clears. Then it clears and everyone is paid, or it doesn't and no one owes anything.",
+    "eyebrow": "And everyone gets paid",
+    "title": "Guaranteed payment for everyone on the job.",
+    "body": "Each person who worked on the job, from the contractor to the professional who signed off, gets a guaranteed share of what the client pays.",
     "steps": [
       {
         "title": "Stack the rate",
@@ -199,26 +199,10 @@
         "body": "Hours get approved, the client gets a single invoice with a payment link. They see the total, never the split."
       },
       {
-        "title": "Pending until it fully clears",
-        "body": "When the client pays, every share shows up as pending for its owner. It stays pending until the payment has completely cleared. Nobody fronts payroll."
-      },
-      {
-        "title": "It clears or it doesn't",
-        "body": "If it clears, everyone is paid, for good. If it doesn't, no one is paid and no one owes a thing. You'll never have to pay money back."
+        "title": "Everyone gets paid",
+        "body": "Every share is guaranteed. Each person gets their slice of what the client pays."
       }
     ]
-  },
-  "split": {
-    "heading": "One client payment",
-    "stageLabel": "Payment stage",
-    "sent": "Invoice sent",
-    "paidStage": "Client paid",
-    "cleared": "Cleared",
-    "captionSent": "Invoice sent: {amount} for {hours} hours.",
-    "captionPending": "The client paid. Every share is pending until the payment fully clears.",
-    "captionCleared": "It cleared. Everyone is paid, and no one will ever pay it back.",
-    "paid": "Paid {amount}",
-    "pending": "Pending"
   },
   "play": {
     "eyebrow": "Try it",
@@ -234,16 +218,6 @@
     "summary": "Of every {rate} billed hour: {shares}. {hours} hours make one invoice for {amount}, and nobody gets a cent until it's paid.",
     "hours": "Hours billed this month",
     "hoursValue": "{hours} h",
-    "phaseLabel": "What happens to the payment",
-    "phasePending": "Client pays",
-    "phaseCleared": "It clears",
-    "phaseFailed": "It doesn't clear",
-    "textPending": "Every share shows up as pending the moment the client pays, and stays pending until the payment fully clears.",
-    "textCleared": "It cleared. Everyone is paid in full, for good.",
-    "textFailed": "It didn't clear. No one is paid, and no one owes anything. Nobody ever pays money back.",
-    "stagePending": "Pending",
-    "stagePaid": "Paid",
-    "stageFailed": "Not paid · nothing owed",
     "shareTitle": "Show a contractor or partner what they'd earn.",
     "send": "Send this split",
     "copied": "Link copied",
@@ -258,12 +232,12 @@
   "receipt": {
     "eyebrow": "Someone sent you a split",
     "title": "Payout receipt",
-    "body": "The client pays {amount} for {hours} hours the contractor billed at {rate} an hour. Of every billed hour: {shares}. Every share stays pending until that payment fully clears, then pays out in full.",
-    "total": "Total paid out when it clears",
-    "never": "You'll never have to pay it back.",
-    "ifNot": "If the payment doesn't clear, no one is paid and no one owes anything. Example numbers, not an offer.",
+    "body": "The client pays {amount} for {hours} hours the contractor billed at {rate} an hour. Of every billed hour: {shares}. Every share is guaranteed.",
+    "total": "Total paid out",
+    "never": "Guaranteed payment.",
     "cta": "Get paid like this: request an invite",
-    "tweak": "Or tweak the numbers below."
+    "tweak": "Or tweak the numbers below.",
+    "example": "Example numbers, not an offer."
   },
   "presets": {
     "referral": "Referral deal",
@@ -354,12 +328,8 @@
         "a": "No. You bring your own Claude and add the AgencyPro connector. It acts with your permissions only, and we never run or bill you for the AI."
       },
       {
-        "q": "When does a share get paid?",
-        "a": "Your share shows as Pending until the client's payment fully clears: a few days for a bank transfer, 60 days for an ACH debit, about 4 months for a card. Then it's paid, for good."
-      },
-      {
-        "q": "What if the client's payment doesn't clear?",
-        "a": "Then no one is paid and no one owes anything. Nobody ever has to pay money back."
+        "q": "Is payment guaranteed?",
+        "a": "Yes. Everyone on the job gets a guaranteed share of what the client pays."
       },
       {
         "q": "What do clients see?",
@@ -374,7 +344,7 @@
   "roster": {
     "eyebrow": "For professionals · coming soon",
     "title": "Licensed? Get paid for the steps AI can't do.",
-    "body": "Accountants, attorneys and other credentialed pros: take review and sign-off steps from AI-run workflows. The prep is done before it reaches you. You make the call, and your share is paid once the client's payment clears. You'll never have to pay it back.",
+    "body": "Accountants, attorneys and other credentialed pros: take review and sign-off steps from AI-run workflows. The prep is done before it reaches you. You make the call, and your share is guaranteed.",
     "cta": "Ask about joining",
     "items": [
       {

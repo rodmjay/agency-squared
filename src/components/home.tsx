@@ -1,4 +1,3 @@
-import { HeroSplit } from "@/components/hero-split";
 import { WorkflowCard } from "@/components/workflow-card";
 import { HumanStepDemo } from "@/components/human-step-demo";
 import { ConnectTabs } from "@/components/connect-tabs";
@@ -12,7 +11,7 @@ import { DICTS, fmt, type Lang } from "@/i18n";
 const INVITE = "mailto:agency@squared.pro?subject=AgencyPro";
 
 // Icons in the same order as the dictionary's lists (src/i18n/en.json).
-const STEP_ICONS = ["stacked_bar_chart", "receipt_long", "hourglass_top", "check_circle"];
+const STEP_ICONS = ["stacked_bar_chart", "receipt_long", "verified"];
 const HUMAN_ICONS = ["send", "badge", "fact_check", "arrow_forward"];
 const KIND_ICONS = ["calculate", "gavel", "edit_document", "approval"];
 const PERK_ICONS = ["forum", "visibility_off", "verified"];
@@ -121,11 +120,8 @@ export function Home({ lang }: { lang: Lang }) {
           <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
             <Eyebrow>{d.how.eyebrow}</Eyebrow>
             <h2 className="md-display-medium mt-2 max-w-3xl text-balance">{d.how.title}</h2>
-            <div className="mt-10 grid items-start gap-8 lg:grid-cols-[1fr_1.1fr]">
-              <p className="md-body-large text-on-surface-variant">{d.how.body}</p>
-              <HeroSplit />
-            </div>
-            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <p className="md-body-large mt-4 max-w-2xl text-on-surface-variant">{d.how.body}</p>
+            <ol className="mt-10 grid gap-4 sm:grid-cols-3">
               {d.how.steps.map((s, i) => (
                 <li key={i} className="md-card-outlined flex flex-col gap-3 p-6">
                   <div className="flex items-center justify-between">

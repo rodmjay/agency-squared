@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "AgencyPro · Su IA hace el trabajo. Personas reales cubren lo demás.",
-    "description": "AgencyPro funciona con Claude a través de MCP y con sus sistemas a través de su API. Los pasos que solo una persona debe hacer pueden ir a profesionales acreditados, y a todos se les paga de forma justa cuando el pago se acredita.",
+    "description": "AgencyPro funciona con Claude a través de MCP y con sus sistemas a través de su API. Los pasos que solo una persona debe hacer pueden ir a profesionales acreditados, y todos en el trabajo reciben una parte garantizada.",
     "ogAlt": "AgencyPro: un flujo de trabajo con IA en el que una persona real se encarga de un paso",
     "skip": "Ir al contenido",
     "language": "Idioma"
@@ -21,7 +21,7 @@
   "hero": {
     "badge": "Funciona con Claude · MCP y API · Beta privada",
     "title": "Su IA hace el trabajo. Personas reales cubren lo demás.",
-    "body": "AgencyPro se conecta a Claude a través de MCP y a sus sistemas a través de su API. Cuando un flujo de trabajo llega a un paso que solo una persona debe hacer, como una revisión y aprobación profesional, ese paso puede ir a un profesional acreditado, y la aprobación vuelve con registro. Todos los que trabajaron reciben un pago justo, y nadie tiene que devolverlo nunca.",
+    "body": "AgencyPro se conecta a Claude a través de MCP y a sus sistemas a través de su API. Cuando un flujo de trabajo llega a un paso que solo una persona debe hacer, como una revisión y aprobación profesional, ese paso puede ir a un profesional acreditado, y la aprobación vuelve con registro. Todos los que trabajaron reciben una parte garantizada.",
     "ctaHuman": "Vea un paso humano",
     "ctaInvite": "Pida una invitación"
   },
@@ -186,9 +186,9 @@
     "apiNote": "Vista previa. El conector y la API comparten las mismas operaciones; los detalles de los endpoints pueden cambiar antes del lanzamiento."
   },
   "how": {
-    "eyebrow": "Y a todos se les paga de forma justa",
-    "title": "Pendiente hasta que se acredita. Nunca se devuelve.",
-    "body": "Cada persona que trabajó en el proyecto, desde el contratista hasta el profesional que lo aprobó, recibe una parte de lo que paga el cliente. Cada parte queda pendiente hasta que el pago se acredita por completo. Entonces se acredita y a todos se les paga, o no se acredita y nadie debe nada.",
+    "eyebrow": "Y a todos se les paga",
+    "title": "Pago garantizado para todos en el trabajo.",
+    "body": "Cada persona que trabajó, desde el contratista hasta el profesional que dio la aprobación, recibe una parte garantizada de lo que paga el cliente.",
     "steps": [
       {
         "title": "Arme la tarifa",
@@ -199,26 +199,10 @@
         "body": "Se aprueban las horas y el cliente recibe una sola factura con un enlace de pago. Ve el total, nunca el reparto."
       },
       {
-        "title": "Pendiente hasta que se acredita",
-        "body": "Cuando el cliente paga, cada parte aparece como pendiente para su dueño. Sigue pendiente hasta que el pago se acredita por completo. Nadie adelanta la nómina."
-      },
-      {
-        "title": "Se acredita o no",
-        "body": "Si se acredita, a todos se les paga, de forma definitiva. Si no, nadie cobra y nadie debe nada. Nunca tendrá que devolver dinero."
+        "title": "Todos cobran",
+        "body": "Cada parte está garantizada. Cada persona recibe su porción de lo que paga el cliente."
       }
     ]
-  },
-  "split": {
-    "heading": "Un pago de un cliente",
-    "stageLabel": "Etapa del pago",
-    "sent": "Factura enviada",
-    "paidStage": "El cliente pagó",
-    "cleared": "Acreditado",
-    "captionSent": "Factura enviada: {amount} por {hours} horas.",
-    "captionPending": "El cliente pagó. Cada parte queda pendiente hasta que el pago se acredita por completo.",
-    "captionCleared": "Se acreditó. A todos se les pagó, y nadie tendrá que devolverlo nunca.",
-    "paid": "Pagado {amount}",
-    "pending": "Pendiente"
   },
   "play": {
     "eyebrow": "Pruébelo",
@@ -234,16 +218,6 @@
     "summary": "De cada hora facturada a {rate}: {shares}. {hours} horas suman una sola factura por {amount}, y nadie recibe un centavo hasta que se paga.",
     "hours": "Horas facturadas este mes",
     "hoursValue": "{hours} h",
-    "phaseLabel": "Qué pasa con el pago",
-    "phasePending": "El cliente paga",
-    "phaseCleared": "Se acredita",
-    "phaseFailed": "No se acredita",
-    "textPending": "Cada parte aparece como pendiente en cuanto el cliente paga, y sigue pendiente hasta que el pago se acredita por completo.",
-    "textCleared": "Se acreditó. A todos se les pagó completo, de forma definitiva.",
-    "textFailed": "No se acreditó. Nadie cobra y nadie debe nada. Nadie tiene que devolver dinero nunca.",
-    "stagePending": "Pendiente",
-    "stagePaid": "Pagado",
-    "stageFailed": "Sin pago · no se debe nada",
     "shareTitle": "Muéstrele a un contratista o socio cuánto ganaría.",
     "send": "Enviar este reparto",
     "copied": "Enlace copiado",
@@ -258,12 +232,12 @@
   "receipt": {
     "eyebrow": "Alguien le envió un reparto",
     "title": "Recibo de pagos",
-    "body": "El cliente paga {amount} por {hours} horas que facturó el contratista, a {rate} la hora. De cada hora facturada: {shares}. Cada parte queda pendiente hasta que ese pago se acredita por completo, y luego se paga completa.",
-    "total": "Total que se paga cuando se acredita",
-    "never": "Nunca tendrá que devolverlo.",
-    "ifNot": "Si el pago no se acredita, nadie cobra y nadie debe nada. Cifras de ejemplo, no una oferta.",
+    "body": "El cliente paga {amount} por {hours} horas que el contratista facturó a {rate} la hora. De cada hora facturada: {shares}. Cada parte está garantizada.",
+    "total": "Total pagado",
+    "never": "Pago garantizado.",
     "cta": "Cobre así: pida una invitación",
-    "tweak": "O ajuste las cifras más abajo."
+    "tweak": "O ajuste las cifras más abajo.",
+    "example": "Cifras de ejemplo, no una oferta."
   },
   "presets": {
     "referral": "Acuerdo con referido",
@@ -354,12 +328,8 @@
         "a": "No. Usted usa su propio Claude y le agrega el conector de AgencyPro. Actúa solo con sus permisos, y nunca ejecutamos ni le cobramos la IA."
       },
       {
-        "q": "¿Cuándo se paga una parte?",
-        "a": "Su parte aparece como Pendiente hasta que el pago del cliente se acredita por completo: unos días para una transferencia bancaria, 60 días para un débito ACH y unos 4 meses para una tarjeta. Entonces se paga, de forma definitiva."
-      },
-      {
-        "q": "¿Y si el pago del cliente no se acredita?",
-        "a": "Entonces nadie cobra y nadie debe nada. Nadie tiene que devolver dinero nunca."
+        "q": "¿El pago está garantizado?",
+        "a": "Sí. Todos en el trabajo reciben una parte garantizada de lo que paga el cliente."
       },
       {
         "q": "¿Qué ven los clientes?",
@@ -374,7 +344,7 @@
   "roster": {
     "eyebrow": "Para profesionales · muy pronto",
     "title": "¿Tiene licencia? Cobre por los pasos que la IA no puede hacer.",
-    "body": "Contadores, abogados y otros profesionales acreditados: tomen pasos de revisión y aprobación de flujos de trabajo con IA. La preparación ya está hecha cuando le llega. Usted toma la decisión, y su parte se paga cuando el pago del cliente se acredita. Nunca tendrá que devolverla.",
+    "body": "Contadores, abogados y otros profesionales acreditados: tomen pasos de revisión y aprobación de flujos de trabajo con IA. La preparación ya está hecha cuando le llega. Usted toma la decisión, y su parte está garantizada.",
     "cta": "Pregunte cómo sumarse",
     "items": [
       {

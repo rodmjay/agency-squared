@@ -8,7 +8,6 @@ import { useI18n } from "@/components/i18n";
 import { fmt, rich } from "@/i18n";
 import { DEFAULT_SPLIT, HOURS, decodeSplit, encodeSplit, rateMax, type SplitState } from "@/lib/split-url";
 
-type Phase = "pending" | "cleared" | "failed";
 // "contractor $75, recruiter $5, …": each stream as a slice of one billed hour (Rod 11/18: never a wage of its own).
 const slices = (s: SplitState, names: Record<StreamKey, { name: string }>) =>
   STREAMS.filter((x) => s.rates[x.key] > 0)
@@ -24,7 +23,6 @@ export function PayoutPlayground({ invite }: { invite: string }) {
   const t = d.play;
   const [split, setSplit] = useState<SplitState>(DEFAULT_SPLIT);
   const [received, setReceived] = useState<SplitState | null>(null);
-  const [phase, setPhase] = useState<Phase>("pending");
   const [copied, setCopied] = useState<"idle" | "done" | "manual">("idle");
   const [link, setLink] = useState("");
   const receiptRef = useRef<HTMLDivElement>(null);
@@ -113,11 +111,6 @@ export function PayoutPlayground({ invite }: { invite: string }) {
             <MdSlider label={t.hours} min={HOURS.min} max={HOURS.max} step={HOURS.step} value={split.hours}
               valueLabel={`${split.hours}`} onValue={(v) => update({ hours: v })} />
           </div>
-          <md-chip-set class="mt-4" aria-label={t.phaseLabel}>
-            <MdFilterChip label={t.phasePending} selected={phase === "pending"} onPick={() => setPhase("pending")} />
-            <MdFilterChip label={t.phaseCleared} selected={phase === "cleared"} onPick={() => setPhase("cleared")} />
-            <MdFilterChip label={t.phaseFailed} selected={phase === "failed"} onPick={() => setPhase("failed")} />
-          </md-chip-set>
           <ul className="mt-2" aria-live="polite">
             {STREAMS.filter((s) => split.rates[s.key] > 0).map((s, i) => {
               const share = split.rates[s.key] * split.hours;
@@ -129,18 +122,12 @@ export function PayoutPlayground({ invite }: { invite: string }) {
                       <span className="size-2.5 rounded-full" style={{ background: s.color }} aria-hidden />
                       {d.streams[s.key].name}
                     </span>
-                    <span className="flex items-center gap-2">
-                      <span className={`figure ${phase === "failed" ? "text-on-surface-variant line-through" : ""}`}>{money(share)}</span>
-                      <Stage phase={phase} />
-                    </span>
+                    <span className="figure">{money(share)}</span>
                   </div>
                 </li>
               );
             })}
           </ul>
-          <p className="md-body-medium mt-3 rounded-xl bg-surface-high px-4 py-3">
-            {phase === "pending" ? t.textPending : phase === "cleared" ? t.textCleared : t.textFailed}
-          </p>
 
           <div className="mt-5 rounded-xl bg-primary-container p-4 text-on-primary-container">
             <p className="md-title-medium">{t.shareTitle}</p>
@@ -198,26 +185,11 @@ function Receipt({ split, invite, ref }: { split: SplitState; invite: string; re
           <dd className="figure">{money(invoice)}</dd>
         </div>
       </dl>
-      <p className="md-label-medium mt-2 text-on-surface-variant"><b className="text-on-surface">{r.never}</b> {r.ifNot}</p>
+      <p className="md-label-medium mt-2 text-on-surface-variant"><b className="text-on-surface">{r.never}</b> {r.example}</p>
       <div className="mt-5 flex flex-wrap items-center gap-3">
         <MdButton href={invite} external icon="arrow_forward" trailingIcon>{r.cta}</MdButton>
         <span className="md-body-medium text-on-surface-variant">{r.tweak}</span>
       </div>
     </div>
-  );
-}
-
-function Stage({ phase }: { phase: Phase }) {
-  const { d } = useI18n();
-  const look = {
-    pending: ["schedule", d.play.stagePending, "bg-surface-highest text-on-surface-variant"],
-    cleared: ["check", d.play.stagePaid, "bg-primary-container text-on-primary-container"],
-    failed: ["block", d.play.stageFailed, "bg-surface-highest text-on-surface-variant"],
-  }[phase];
-  return (
-    <span className={`md-label-medium inline-flex items-center gap-1 rounded-lg px-2 py-0.5 ${look[2]}`}>
-      <md-icon aria-hidden="true" style={{ ["--md-icon-size" as string]: "14px" }}>{look[0]}</md-icon>
-      {look[1]}
-    </span>
   );
 }
