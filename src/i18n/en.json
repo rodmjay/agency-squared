@@ -142,7 +142,7 @@
     "body": "Nothing you enter leaves this page unless you share the link yourself.",
     "build": "Build the rate",
     "buildBody": "Drag any slider. Set a share to $0 and it drops off the contract.",
-    "streamsNote": "Every share comes out of the same billed hour. Only the contractor works the hours; everyone else earns a slice of each one.",
+    "streamsNote": "Every share comes out of the same billed hour. Only the contractor's hours are billed; everyone else earns a slice of each one.",
     "presetLabel": "Start from a preset",
     "perHour": "{amount} per billed hour",
     "sliderLabel": "{name}'s share of each billed hour, in dollars",

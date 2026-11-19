@@ -142,7 +142,7 @@
     "body": "Nada de lo que ingrese sale de esta página, a menos que usted comparta el enlace.",
     "build": "Arme la tarifa",
     "buildBody": "Mueva cualquier control. Si pone una parte en $0, sale del contrato.",
-    "streamsNote": "Cada parte sale de la misma hora facturada. Solo el contratista trabaja las horas; los demás reciben una parte de cada una.",
+    "streamsNote": "Cada parte sale de la misma hora facturada. Solo se facturan las horas del contratista; los demás reciben una parte de cada una.",
     "presetLabel": "Empiece con un ejemplo",
     "perHour": "{amount} por hora facturada",
     "sliderLabel": "Parte de {name} en cada hora facturada, en dólares",
