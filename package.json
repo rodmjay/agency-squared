@@ -9,7 +9,8 @@
     "lint": "eslint",
     "sync:ds": "scripts/sync-design-system.sh",
     "check:i18n": "node src/design-system/check-i18n.mjs --dict src/i18n/en.json --dict src/i18n/es.json",
-    "prebuild": "npm run check:i18n"
+    "check:wording": "node scripts/check-share-wording.mjs src/i18n/en.json src/i18n/es.json src",
+    "prebuild": "npm run check:i18n && npm run check:wording"
   },
   "dependencies": {
     "@material/web": "2.5.0",

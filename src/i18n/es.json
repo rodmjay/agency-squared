@@ -193,7 +193,7 @@
     "marketer": { "name": "Promotor", "who": "Trajo al cliente", "blurb": "Los socios que refieren ganan una parte de cada hora que paga el cliente que enviaron." },
     "marketing": { "name": "Agencia de marketing", "who": "La firma del promotor", "blurb": "Las agencias que le envían trabajo cobran como socias, no con una nota de agradecimiento." },
     "pm": { "name": "Gerente de proyecto", "who": "Mantiene el trabajo en marcha", "blurb": "Coordinar también es trabajo. Tiene su propia línea." },
-    "am": { "name": "Gerente de cuenta", "who": "Mantiene contento al cliente", "blurb": "Lleva la relación y gana con ella, hora por hora." },
+    "am": { "name": "Gerente de cuenta", "who": "Mantiene contento al cliente", "blurb": "Lleva la relación y gana una parte de cada hora que factura el contratista." },
     "agency": { "name": "Su agencia", "who": "Su margen", "blurb": "Lo que queda para el negocio, sin pelearse con hojas de cálculo." },
     "system": { "name": "AgencyPro", "who": "La tarifa de la plataforma", "blurb": "Nuestra parte, en su propia línea. Sin márgenes ocultos." }
   },
