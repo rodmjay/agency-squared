@@ -151,4 +151,16 @@
   color: var(--md-sys-color-primary); font: var(--md-sys-typescale-label-large-weight, 500) var(--md-sys-typescale-label-large-size)/1.4 var(--md-ref-typeface-plain); }
 .ds-code-resend:disabled { color: var(--md-sys-color-on-surface-variant); cursor: default; }
 .ds-code-resend:focus-visible { outline: 3px solid var(--md-sys-color-secondary); outline-offset: 2px; }
+
+.ds-icon { width: 1.5rem; height: 1.5rem; flex: none; fill: currentColor; vertical-align: middle; }
+.ds-icon.sm { width: 1.25rem; height: 1.25rem; }
+.ds-icon.lg { width: 2rem; height: 2rem; }
+
+.ds-logo {
+  display: inline-grid; place-items: center; flex: none; width: 2.5rem; height: 2.5rem; padding: var(--space-1);
+  border-radius: var(--md-sys-shape-corner-small); background: var(--ds-logo-plate);
+  box-shadow: inset 0 0 0 1px var(--md-sys-color-outline-variant); overflow: hidden;
+}
+.ds-logo img, .ds-logo svg { max-width: 100%; max-height: 100%; object-fit: contain; }
+.ds-logo.lg { width: 3.5rem; height: 3.5rem; padding: var(--space-2); }
 }
